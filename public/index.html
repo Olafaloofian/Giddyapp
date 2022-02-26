@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/main.css"/>
+    <script src="../src/horse.js"></script>
+    <script src="../src/app.js"></script>
+    <title>Web Game</title>
+</head>
+<body>
+    <div class="main">
+        <div class="race-container">
+            <span id="win-message"></span>
+            <div id="horses">
+                <div class="horse-container">
+                    <img id="Eclipse" class="horse" src="../assets/Eclipse/tile015.png" />
+                    <span class="temp-name">Eclipse</span>
+                </div>
+                <div class="horse-container">
+                    <img id="Bullseye" class="horse" class="horse-image" src="../assets/Bullseye/tile015.png" />
+                    <span class="temp-name">Bullseye</span>
+                </div>
+            </div>
+        </div>
+        <div class="user-container">
+            <button id="start-button" onclick="startRace()">START RACE</button>
+            <button onclick="resetRace()">RESET RACE</button>
+        </div>
+    </div>
+</body>
+</html>
