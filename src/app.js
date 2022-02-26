@@ -14,6 +14,7 @@ function startRace() {
         element.style.display = "none"
     })
     document.getElementById("start-button").disabled = true
+    document.getElementById("reset-button").style.display = "none"
 }
 
 function resetRace() {
@@ -23,12 +24,8 @@ function resetRace() {
     finishOrder = []
     document.getElementById("start-button").disabled = false
     document.querySelectorAll(".temp-name").forEach((element) => {
-        element.style.display = "inherit"
+        element.style.display = "initial"
     })
-}
-
-function checkForWin() {
-    let winningHorse = finishOrder[0]
-    alert(`${finishOrder[0].id} Won!`)
+    document.getElementById("reset-button").style.display = "none"
 }
 

@@ -52,7 +52,7 @@ box-sizing:inherit
 
 #horses {
     height: 300px;
-    width: 800px;
+    width: 1000px;
     background: lightgreen;
     position: relative;
 }
@@ -73,4 +73,16 @@ box-sizing:inherit
 
 .temp-name {
     display: inherit;
+}
+
+#reset-button {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 500;
+}
+
+#start-button {
+    position: fixed;
+    bottom: 0;
 }
