@@ -49,6 +49,33 @@ box-sizing:inherit
 }
 
 /* END CSS RESET */
+
+button {
+    color: white;
+    background-color: maroon;
+    font-size: 20px;
+    text-decoration: none;
+    text-shadow: -1px -1px 1px #616161;
+    position: relative;
+    padding: 15px 30px;
+    -webkit-box-shadow: 5px 5px 0 #666;
+    -moz-box-shadow: 5px 5px 0 #666;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    margin: 0 10px 0 0;
+    font-family: 'VT323', monospace;
+    font-size: 2.5em;
+}
+
+button:hover {
+    -webkit-box-shadow: 0px 0px 0 #666;
+    -moz-box-shadow: 0px 0px 0 #666;
+}
+
+button:disabled {
+    display: none;
+}
+
 .main {
     position: fixed;
     top: 0;
@@ -62,11 +89,23 @@ box-sizing:inherit
 
 #win-message {
     display: block;
-    height: 20px;
+    position: sticky;
+    top: 0;
+    width: 50vw;
+    height: 100px;
+    color: white;
+    font-size: 5em;
+    /* background-image: url('../assets/landscape/sand2.png'); */
+    background-repeat: repeat;
+    margin: 15px auto;
+    font-family: 'Press Start 2P', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #raceway {
-    margin: 50px;
+    margin: 200px 50px 0 50px;
     height: 600px;
     width: 1000px;
     background-image: url("../assets/landscape/sand_dual.png");
@@ -75,12 +114,39 @@ box-sizing:inherit
     position: relative;
 }
 
+#raceway:before {
+    position: relative;
+    margin-top: 0px;
+    display: block;
+    content: ' ';
+    background: url('../assets/landscape/fence1.png') repeat;
+    background-size: 40px 40px;
+    height: 40px;
+    top:-10px;
+    left:0px;
+}
+
+#raceway:after {
+    content: ' ';
+    position: relative;
+    bottom: 0;
+    display: block;
+    background: url('../assets/landscape/fence1.png') repeat;
+    background-size: 40px 40px;
+    height: 40px;
+    top:30px;
+    left:0px;
+}
+
 .horse-container {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    font-family: 'VT323', monospace;
+    font-weight: 500;
+    font-size: 2em;
 }
 
 .horse {
