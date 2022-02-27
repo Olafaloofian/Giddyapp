@@ -91,10 +91,10 @@ button:disabled {
     display: block;
     position: sticky;
     top: 0;
-    width: 50vw;
+    width: 70vw;
     height: 100px;
     color: white;
-    font-size: 5em;
+    font-size: calc(2vh + 3vw);
     /* background-image: url('../assets/landscape/sand2.png'); */
     background-repeat: repeat;
     margin: 15px auto;
