@@ -190,10 +190,11 @@ button:disabled {
     display: none;
     position: fixed;
     bottom: 0;
-    left: 500;
+    right: 0;
 }
 
 #start-button {
     position: fixed;
     bottom: 0;
+    right: 0;
 }
