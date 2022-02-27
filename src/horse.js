@@ -21,12 +21,14 @@ class Horse {
         this.horseElement.style.left = "0px";
         this.finishedStatus = false
         document.getElementById("win-message").textContent = ''
+        document.getElementById("main").scrollLeft = 0
     }
 
     // Stop horse movement
     stop(){
         clearInterval(this.movementInterval);
-        clearTimeout(this.randomizeSpeedTimer)
+        clearTimeout(this.randomizeSpeedTimer);
+        clearInterval(scrollInterval);
         this.horseElement.src = `../assets/${this.id}/tile015.png`
         this.finishedStatus = true
         if (!finishOrder.length) {
@@ -44,7 +46,7 @@ class Horse {
         var xPosition = this.horseElement.offsetLeft;
         this.movementInterval = setInterval(() => {
             var step = 5; // This changes how far right the horse will move each iteration
-            if(xPosition < 900) { 
+            if(xPosition < 1350) {
                 xPosition = xPosition + step;
                 this.horseElement.style.left= xPosition + "px"; // Horizontal movement
             } else {
@@ -52,7 +54,7 @@ class Horse {
             }
         }, this.speedMilliseconds);
 
-        if(xPosition < 900) { 
+        if(xPosition < 1350) { 
             this.randomizeSpeedTimer = setTimeout(() => {
                 this.speedMilliseconds = randomInteger(20, 60)
                 this.setMovementSpeed()
