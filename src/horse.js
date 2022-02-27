@@ -26,18 +26,19 @@ class Horse {
 
     // Stop horse movement
     stop(){
+        if (!finishOrder.length) {
+            document.getElementById("win-message").textContent = `${this.id.toUpperCase()} WINS!`
+        }
+        finishOrder.push(this)
         clearInterval(this.movementInterval);
         clearTimeout(this.randomizeSpeedTimer);
         clearInterval(scrollInterval);
         this.horseElement.src = `../assets/${this.id}/tile015.png`
         this.finishedStatus = true
-        if (!finishOrder.length) {
-            document.getElementById("win-message").textContent = `${this.id.toUpperCase()} WINS!`
-        }
-        finishOrder.push(this)
         if (finishOrder.length === horseList.length) {
             document.getElementById("reset-button").style.display = "initial"
         }
+        console.log('------------ finishOrder', finishOrder)
     }
 
     // Will be called repeatedly to randomize speed across the course
