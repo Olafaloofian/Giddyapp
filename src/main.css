@@ -111,12 +111,15 @@ button:disabled {
 
 #raceway {
     margin: 200px 50px 0 50px;
-    height: 600px;
+    height: 580px;
     width: 1000px;
     background-image: url("../assets/landscape/sand_dual.png");
     background-size: 40px 40px;
     background-color: lightgreen;
     position: relative;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
 }
 
 #raceway:before {
@@ -139,8 +142,16 @@ button:disabled {
     background: url('../assets/landscape/fence1.png') repeat;
     background-size: 40px 40px;
     height: 40px;
-    top:30px;
+    top:5px;
     left:0px;
+}
+
+#raceway > div {
+    border-top: 3px rgba(149, 32, 32, 0.109) solid;
+}
+
+#raceway > div:last-of-type {
+    border-bottom: 3px rgba(149, 32, 32, 0.109)solid;
 }
 
 .horse-container {
