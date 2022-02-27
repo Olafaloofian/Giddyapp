@@ -53,21 +53,26 @@ box-sizing:inherit
 button {
     color: white;
     background-color: maroon;
+    border: 3px solid rgb(29, 29, 29);
     font-size: 20px;
     text-decoration: none;
     text-shadow: -1px -1px 1px #616161;
     position: relative;
     padding: 15px 30px;
+    box-shadow: 5px 5px 0 #666;
     -webkit-box-shadow: 5px 5px 0 #666;
     -moz-box-shadow: 5px 5px 0 #666;
+    transition: all 0.3s ease;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
-    margin: 0 10px 0 0;
+    margin: 0 auto;
     font-family: 'VT323', monospace;
     font-size: 2.5em;
 }
 
 button:hover {
+    background-color: rgb(92, 0, 0);
+    box-shadow: 0px 0px 0 #666;
     -webkit-box-shadow: 0px 0px 0 #666;
     -moz-box-shadow: 0px 0px 0 #666;
 }
