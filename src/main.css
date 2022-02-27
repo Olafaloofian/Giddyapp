@@ -90,6 +90,7 @@ button:disabled {
     background-image: url("../assets/landscape/grass1.png");
     background-size: 30px 30px;
     background-repeat: repeat;
+    overflow-y: hidden;
     overflow-x: scroll;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
@@ -116,10 +117,11 @@ button:disabled {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 #raceway {
-    margin: 120px 50px 0 50px;
+    margin: 160px 50px 0 50px;
     height: 480px;
     width: 1500px;
     background-image: url("../assets/landscape/sand_dual.png");
@@ -186,10 +188,10 @@ button:disabled {
 
 .horse {
     position: relative;
-    width: 150px;
+    width: 180px;
     left: 0px;
     z-index: 1;
-    padding-right: 30px;
+    padding-right: 60px;
 }
 
 .temp-name {

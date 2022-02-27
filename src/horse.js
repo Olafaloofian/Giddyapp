@@ -67,5 +67,6 @@ class Horse {
     run(){
         this.horseElement.src = `../assets/${this.id}/run.gif` // Change the image to a running gif
         this.setMovementSpeed()
+        scrollX()
     }
 }
