@@ -1,10 +1,8 @@
 let horseList = []
 var finishOrder = []
-var isMobile = true
 var scrollInterval = null
 
 window.onload = (event) => {
-    isMobile = (window.innerWidth < 1500)
     horseList = Array.from(document.querySelectorAll(".horse")).map((horseElement) => new Horse(horseElement.id))
     console.log('------------ horselist', horseList)
     clearInterval(scrollInterval)
@@ -12,7 +10,6 @@ window.onload = (event) => {
 }
 
 window.onresize = (event) => {
-    isMobile = (window.innerWidth < 1500)
     clearInterval(scrollInterval)
     scrollX()
     console.log('------------ RESIZED')
@@ -42,7 +39,7 @@ function resetRace() {
 }
 
 function scrollX() {
-    if(isMobile) {
+    if(window.innerWidth < 1500) {
         scrollInterval = setInterval(() => {
             console.log('------------ RUNNING')
             horseList.forEach((horse) => {
