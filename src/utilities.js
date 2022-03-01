@@ -52,7 +52,7 @@ function scrollX() {
                     horse.horseElement.scrollIntoView()
                 }
             })
-        }, 50)
+        }, 10)
     }
 }
 

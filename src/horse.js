@@ -29,7 +29,7 @@ class Horse {
                 showWinPopup()
                 user.funds += (user.betAmount * 5)
                 document.getElementById("user-funds-text").textContent = user.funds
-                document.getElementById("user-bet-text").textContent = "WINNER!"
+                document.getElementById("user-bet-text").textContent = `${this.id.toUpperCase()} WINS!`
             } else {
                 document.getElementById("user-bet-text").textContent = `${this.id} wins.`
                 document.getElementById("user-funds-container").textContent = "Better luck next time!"

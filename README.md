@@ -62,14 +62,13 @@ An online game where users can bet simulated money on a virtual horse race.
 - Make square favicon
 - Download and include fonts
 - Make horse bet buttons have an arrow pointing left (started in CSS)
-- Create tooltips for initial game tutorial
 - localStorage solution
 - Audio
 - Show finish places with medals to right of track
 - Deprecate "#win-message"
 - Make background move with scroll
 - Load page after all assets are available
-- Menu slides up from bottom
+- Clean up CSS
 
 ### Attributions
 
