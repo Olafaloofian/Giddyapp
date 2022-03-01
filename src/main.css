@@ -68,6 +68,7 @@ button {
     margin: 0 auto;
     font-family: 'VT323', monospace;
     font-size: 2.5em;
+    cursor: pointer;
 }
 
 button:hover {
@@ -186,6 +187,25 @@ button:disabled {
     font-size: 2em;
 }
 
+.horse-container > button:last-of-type {
+    margin-left: 50px;
+    font-size: 0.6em;
+    font-family: 'Press Start 2P', cursive;
+    padding: 7px 3px 5px 10px;
+    /* border: none; */
+}
+
+/* .horse-container > button:last-of-type::before {
+    content: '';
+    position: relative;
+    width: 0;
+    height: 0;
+    left: -20px;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid maroon;
+} */
+
 .horse {
     position: relative;
     width: 180px;
@@ -196,6 +216,17 @@ button:disabled {
 
 .temp-name {
     display: inherit;
+    width: 100px;
+}
+
+.user-container {
+    height: 200px;
+    width: 100vw;
+    background-color: grey;
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
 }
 
 #reset-button {
@@ -203,15 +234,18 @@ button:disabled {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    background-color: darkgreen;
-}
-
-#reset-button:hover {
-    background-color: rgb(0, 73, 0);
 }
 
 #start-button {
     position: fixed;
     bottom: 30px;
     right: 30px;
+}
+
+.green-button {
+    background-color: darkgreen;
+}
+
+.green-button:hover {
+    background-color: rgb(0, 73, 0);
 }

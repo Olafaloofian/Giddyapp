@@ -19,9 +19,7 @@ function startRace() {
     horseList.forEach((horse) => {
         horse.run()
     })
-    document.querySelectorAll(".temp-name").forEach((element) => {
-        element.style.display = "none"
-    })
+    hideElements([".temp-name", ".bet-button"])
     document.getElementById("start-button").disabled = true
     document.getElementById("reset-button").style.display = "none"
 }
@@ -32,23 +30,7 @@ function resetRace() {
     })
     finishOrder = []
     document.getElementById("start-button").disabled = false
-    document.querySelectorAll(".temp-name").forEach((element) => {
-        element.style.display = "initial"
-    })
+    showElements([".temp-name", ".bet-button"])
     document.getElementById("reset-button").style.display = "none"
-}
-
-function scrollX() {
-    if(window.innerWidth < 1500) {
-        scrollInterval = setInterval(() => {
-            console.log('------------ RUNNING')
-            horseList.forEach((horse) => {
-                let boundingBox = horse.horseElement.getBoundingClientRect()
-                if(boundingBox.right > window.innerWidth) {
-                    horse.horseElement.scrollIntoView()
-                }
-            })
-        }, 50)
-    }
 }
 

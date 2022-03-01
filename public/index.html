@@ -26,6 +26,7 @@
     <meta name="theme-color" content="#ffffff">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="stylesheet" href="../src/main.css"/>
+    <script src="../src/utilities.js"></script>
     <script src="../src/horse.js"></script>
     <script src="../src/app.js"></script>
     <title>Giddyapp</title>
@@ -38,29 +39,38 @@
                 <div class="horse-container">
                     <img id="Maximus" class="horse" class="horse-image" src="../assets/Maximus/tile015.png" />
                     <span class="temp-name">Maximus</span>
+                    <button class="bet-button">BET!</button>
                 </div>
                 <div class="horse-container">
                     <img id="Eclipse" class="horse" src="../assets/Eclipse/tile015.png" />
                     <span class="temp-name">Eclipse</span>
+                    <button class="bet-button">BET!</button>
                 </div>
                 <div class="horse-container">
                     <img id="Bullseye" class="horse" class="horse-image" src="../assets/Bullseye/tile015.png" />
                     <span class="temp-name">Bullseye</span>
+                    <button class="bet-button">BET!</button>
                 </div>
                 <div class="horse-container">
                     <img id="Poncho" class="horse" class="horse-image" src="../assets/Poncho/tile015.png" />
                     <span class="temp-name">Poncho</span>
+                    <button class="bet-button">BET!</button>
                 </div>
                 <div class="horse-container">
                     <img id="Sunshine" class="horse" class="horse-image" src="../assets/Sunshine/tile015.png" />
                     <span class="temp-name">Sunshine</span>
+                    <button class="bet-button">BET!</button>
                 </div>
                 <div id="finish-line"></div>
             </div>
         </div>
         <div class="user-container">
+            <button class="green-button" id="5-bet">$5</button>
+            <button class="green-button" id="10-bet">$10</button>
+            <button class="green-button" id="20-bet">$20</button>
+            <button class="green-button" id="50-bet">$50</button>
             <button id="start-button" onclick="startRace()">Start Race!</button>
-            <button id="reset-button" onclick="resetRace()">Play Again?</button>
+            <button class="green-button" id="reset-button" onclick="resetRace()">Play Again?</button>
         </div>
     </div>
 </body>

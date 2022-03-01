@@ -1,8 +1,3 @@
-// Generate a random number between to integers
-function randomInteger(min, max) { // min and max included 
-  return Math.floor(Math.random() * (max - min + 1) + min)
-}
-
 // Main horse class
 class Horse {
     constructor(id) {
@@ -62,7 +57,6 @@ class Horse {
             }, randomInteger(200, 1200));
         }
     }
-
 
     // Run across the screen at a random speed
     run(){

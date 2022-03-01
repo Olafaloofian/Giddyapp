@@ -49,3 +49,10 @@ An online game where users can bet simulated money on a virtual horse race.
 - Use different images for each horse - put numbers on their sides in photoshop?
 - Gif sprite showing horse running
 - HORSE GIF SETTINGS: Frame 1-11, Delay Time 8, Don't Stack
+
+### Hosting ideas
+
+- giddyapp.buzz
+- Buzz Games
+- Websockets multiplayer
+- Account with one daily play
