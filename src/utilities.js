@@ -43,7 +43,7 @@ function showElements(identifierArray) {
 
 // Scroll along the x axis if the window isn't wide enough to fit the track
 function scrollX() {
-    if(window.innerWidth < 1500 && raceStarted) {
+    if(window.innerWidth < 1735 && raceStarted) {
         window.scrollInterval = setInterval(() => {
             console.log('------------ RUNNING')
             horseList.forEach((horse) => {

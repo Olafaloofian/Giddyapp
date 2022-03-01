@@ -35,7 +35,9 @@
 </head>
 <body>
     <div id="main">
-        <span id="win-message"></span>
+        <!-- <div id="win-message-container">
+            <span id="win-message"></span>
+        </div> -->
         <div class="race-container">
             <div id="win-popup">
                 <div>
@@ -70,12 +72,6 @@
             </div>
         </div>
         <div class="user-container">
-            <div id="dollar-container">
-                <button class="green-button dollar-button" id="5-bet" onclick="user.placeDollarBet(5)">5</button>
-                <button class="green-button dollar-button" id="10-bet" onclick="user.placeDollarBet(10)">10</button>
-                <button class="green-button dollar-button" id="20-bet" onclick="user.placeDollarBet(20)">20</button>
-                <button class="green-button dollar-button" id="50-bet" onclick="user.placeDollarBet(50)">50</button>
-            </div>
             <div id="user-display-container">
                 <div id="info-container">
                     <div id="user-bet" class="user-info">
@@ -85,6 +81,12 @@
                         Your funds: $<span id="user-funds-text">1000</span>
                     </div>
                 </div>
+            </div>
+            <div id="dollar-container">
+                <button class="green-button dollar-button" id="5-bet" onclick="user.placeDollarBet(5)">5</button>
+                <button class="green-button dollar-button" id="10-bet" onclick="user.placeDollarBet(10)">10</button>
+                <button class="green-button dollar-button" id="20-bet" onclick="user.placeDollarBet(20)">20</button>
+                <button class="green-button dollar-button" id="50-bet" onclick="user.placeDollarBet(50)">50</button>
                 <button id="start-button" onclick="startRace()">Start Race!</button>
                 <button class="green-button" id="reset-button" onclick="resetRace()">Play Again?</button>
             </div>

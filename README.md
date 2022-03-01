@@ -67,6 +67,12 @@ An online game where users can bet simulated money on a virtual horse race.
 - Fix intervals running even after race ends
 - localStorage solution
 - Audio
+- Show finish places with medals to right of track
+- Deprecate "#win-message"
+- Make background move with scroll
+- Load page after all assets are available
+- Make track fill whole screen?
+- Download and include fonts
 
 ### Attributions
 

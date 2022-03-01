@@ -7,7 +7,7 @@ var user = {
         this.betHorse = horseId
         document.getElementById("user-bet-text").textContent = `You bet $${this.betAmount} on ${this.betHorse}!`
         showElements(["#start-button"])
-        hideElements([".bet-button"])
+        hideElements([".bet-button", ".dollar-button"])
     },
 
     placeDollarBet: function(amount) {

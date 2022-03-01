@@ -16,21 +16,24 @@ class Horse {
         this.horseElement.src = `../assets/${this.id}/tile015.png`
         this.horseElement.style.left = "0px";
         this.finishedStatus = false
-        document.getElementById("win-message").textContent = ''
+        // hideElements(["#win-message"])
+        // document.getElementById("win-message").textContent = ''
         document.getElementById("main").scrollLeft = 0
     }
 
     // Stop horse movement
     stop(){
         if (!finishOrder.length) {
-            document.getElementById("win-message").textContent = `${this.id.toUpperCase()} WINS!`
+            // document.getElementById("win-message").textContent = `${this.id.toUpperCase()} WINS!`
+            // showElements(["#win-message"])
             if(user.betHorse === this.id) {
                 showWinPopup()
                 user.funds += (user.betAmount * 5)
                 document.getElementById("user-funds-text").textContent = user.funds
                 document.getElementById("user-bet-text").textContent = "WINNER!"
             } else {
-                document.getElementById("user-bet-text").textContent = "Better luck next time!"
+                document.getElementById("user-bet-text").textContent = `${this.id} wins.`
+                document.getElementById("user-funds-container").textContent = "Better luck next time!"
             }
         }
         finishOrder.push(this)
@@ -51,7 +54,7 @@ class Horse {
         var xPosition = this.horseElement.offsetLeft;
         this.movementInterval = setInterval(() => {
             var step = 5; // This changes how far right the horse will move each iteration
-            if(xPosition < 1350) {
+            if(xPosition < 1550) {
                 xPosition = xPosition + step;
                 this.horseElement.style.left= xPosition + "px"; // Horizontal movement
             } else {
@@ -59,7 +62,7 @@ class Horse {
             }
         }, this.speedMilliseconds);
 
-        if(xPosition < 1350) { 
+        if(xPosition < 1550) { 
             this.randomizeSpeedTimer = setTimeout(() => {
                 this.speedMilliseconds = randomInteger(20, 60)
                 this.setMovementSpeed()
