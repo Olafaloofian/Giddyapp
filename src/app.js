@@ -24,6 +24,7 @@ document.addEventListener('mouseup', function(e) {
     var popup = document.getElementById('win-popup');
     if (!popup.contains(e.target)) {
         popup.style.display = 'none';
+        document.getElementById("win-amount").textContent = 0
         clearInterval(window.moneyInterval)
     }
 });
@@ -34,6 +35,7 @@ function startRace() {
         horse.run()
     })
     hideElements([".bet-button", "#start-button", "#reset-button"])
+    scrollX()
 }
 
 function resetRace() {

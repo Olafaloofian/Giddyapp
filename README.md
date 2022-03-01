@@ -64,7 +64,6 @@ An online game where users can bet simulated money on a virtual horse race.
 - Create tooltips for initial game tutorial
 - Add click down css for dollar buttons
 - Make "floating damage numbers" animation for betting (subtracts from Your funds)
-- Fix intervals running even after race ends
 - localStorage solution
 - Audio
 - Show finish places with medals to right of track
