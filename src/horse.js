@@ -18,7 +18,6 @@ class Horse {
         this.finishedStatus = false
         // hideElements(["#win-message"])
         // document.getElementById("win-message").textContent = ''
-        document.getElementById("main").scrollLeft = 0
     }
 
     // Stop horse movement

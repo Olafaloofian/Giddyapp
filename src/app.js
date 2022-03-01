@@ -3,11 +3,14 @@ var finishOrder = []
 var raceStarted = false
 
 window.onload = (event) => {
-    document.getElementById("raceway").scrollIntoView(); // Set scroll position correctly on mobile
+    // Set scroll position correctly on mobile
+    document.getElementById("raceway").scrollIntoView();
+    document.getElementById("main").scrollLeft = 0
+    // Create a horse object for each element on the page
     horseList = Array.from(document.querySelectorAll(".horse")).map((horseElement) => new Horse(horseElement.id))
-    console.log('------------ horselist', horseList)
-    clearInterval(window.scrollInterval)
+    // Set up auto-scroll
     scrollX()
+    // Load user funds
     document.getElementById('user-funds-text').textContent = user.funds
 }
 
@@ -46,5 +49,6 @@ function resetRace() {
     showElements([".dollar-button"])
     document.getElementById("user-bet-text").textContent = "Make a bet!"
     document.getElementById("user-funds-container").innerHTML = `Your funds: $<span id="user-funds-text">${user.funds}</span>`
+    document.getElementById("main").scrollLeft = 0
 }
 

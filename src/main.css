@@ -454,11 +454,11 @@ button:disabled {
     }
 }
 
-@media only screen and (max-height: 870px) {
+/* @media only screen and (max-height: 870px) {
     #raceway {
         margin: 3vh 50px 0 50px;
     }
-}
+} */
 
 @media only screen and (max-height: 795px) {
     #raceway {
