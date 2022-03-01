@@ -56,17 +56,112 @@ box-sizing:inherit;
 /* ANIMATIONS */
 
 @keyframes colorFlash {  
-    0% { background-color: rgb(0, 15, 223); }
-    50% { background-color: rgb(0, 15, 223); }
-    51% { background-color: rgb(33, 165, 0); }
-    100% { background-color: rgb(33, 165, 0); }
+    0% { 
+        color: white;
+        background-color: rgb(0, 15, 223); 
+    }
+    50% { 
+        color: white;
+        background-color: rgb(0, 15, 223); 
+    }
+    51% { 
+        color: black;
+        background-color: rgb(255, 238, 0); 
+    }
+    100% { 
+        color: black;
+        background-color: rgb(255, 238, 0); 
+    }
 }
 
 @-webkit-keyframes colorFlash {  
-    0% { background-color: rgb(0, 15, 223); }
-    50% { background-color: rgb(0, 15, 223); }
-    51% { background-color: rgb(33, 165, 0); }
-    100% { background-color: rgb(33, 165, 0); }
+    0% { 
+        color: white;
+        background-color: rgb(0, 15, 223); 
+    }
+    50% { 
+        color: white;
+        background-color: rgb(0, 15, 223); 
+    }
+    51% { 
+        color: black;
+        background-color: rgb(255, 238, 0); 
+    }
+    100% { 
+        color: black;
+        background-color: rgb(255, 238, 0); 
+    }
+}
+
+@keyframes fadeAway {  
+    0% { 
+        transform: translateY(0px);
+        color: rgb(192, 179, 0); 
+        /* text-shadow: -0.2px -0.2px 0 #000, 0.2px -0.2px 0 #000, -0.2px 0.2px 0 #000, 0.2px 0.2px 0 #000; */
+    }
+    100% { 
+        transform: translateY(-30px);
+        color: rgba(226, 211, 0, 0); 
+        /* text-shadow: -1px -1px 0 rgba(0, 0, 0, 0), 1px -1px 0 rgba(0, 0, 0, 0), -1px 1px 0 rgba(0, 0, 0, 0), 1px 1px 0 rgba(0, 0, 0, 0); */
+    }
+}
+
+@-webkit-keyframes fadeAway {  
+    0% { 
+        transform: translateY(0px);
+        color: rgb(192, 179, 0); 
+        /* text-shadow: -0.2px -0.2px 0 #000, 0.2px -0.2px 0 #000, -0.2px 0.2px 0 #000, 0.2px 0.2px 0 #000; */
+    }
+    100% { 
+        transform: translateY(-30px);
+        color: rgba(226, 211, 0, 0); 
+        /* text-shadow: -1px -1px 0 rgba(0, 0, 0, 0), 1px -1px 0 rgba(0, 0, 0, 0), -1px 1px 0 rgba(0, 0, 0, 0), 1px 1px 0 rgba(0, 0, 0, 0); */
+    }
+}
+
+@keyframes fadeIn {
+    0% { 
+        opacity: 0;
+    }
+    100% { 
+        opacity: 1;
+    }
+}
+
+@keyframes translateUp {  
+    0% { 
+        transform: translateY(0px);
+    }
+    100% { 
+        transform: translateY(-200px);
+    }
+}
+
+@-webkit-keyframes translateUp {  
+    0% { 
+        transform: translateY(0px);
+    }
+    100% { 
+        transform: translateY(-200px);
+    }
+}
+
+@keyframes translateDown {  
+    0% { 
+        transform: translateY(-200px);
+    }
+    100% { 
+        transform: translateY(0px);
+    }
+}
+
+@-webkit-keyframes translateDown {  
+    0% { 
+        transform: translateY(-200px);
+    }
+    100% { 
+        transform: translateY(0px);
+    }
 }
 
 /* MAIN STYLES */
@@ -79,9 +174,9 @@ button {
     text-shadow: -1px -1px 1px #616161;
     position: relative;
     padding: 15px 30px;
-    box-shadow: 5px 5px 0 #666;
-    -webkit-box-shadow: 5px 5px 0 #666;
-    -moz-box-shadow: 5px 5px 0 #666;
+    box-shadow: 5px 5px 0 rgb(41, 41, 41);
+    -webkit-box-shadow: 5px 5px 0 rgb(41, 41, 41);
+    -moz-box-shadow: 5px 5px 0 rgb(41, 41, 41);
     transition: all 0.3s ease;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
@@ -89,13 +184,16 @@ button {
     font-family: 'VT323', monospace;
     font-size: 2.5em;
     cursor: pointer;
+    opacity: 1;
+    animation: fadeIn 0.1s;
+    /* Too jarring to fade in when there's no fade out? */
 }
 
-button:hover {
-    background-color: rgb(92, 0, 0);
-    box-shadow: 0px 0px 0 rgba(102, 102, 102, 0.493);
-    -webkit-box-shadow: 0px 0px 0 #666;
-    -moz-box-shadow: 0px 0px 0 #666;
+button:hover, button:active {
+    background-color: rgb(110, 0, 0);
+    box-shadow: 0px 0px 0 rgb(41, 41, 41);
+    -webkit-box-shadow: 0px 0px 0 rgb(41, 41, 41);
+    -moz-box-shadow: 0px 0px 0 rgb(41, 41, 41);
 }
 
 button:disabled {
@@ -170,7 +268,7 @@ button:disabled {
     background-color: rgb(0, 15, 223);
     animation: colorFlash 0.4s infinite;
     -webkit-animation: colorFlash 0.4s infinite;
-    border: 3px solid rgb(29, 29, 29);
+    border: 5px solid rgb(29, 29, 29);
 }
 
 #win-popup > div {
@@ -260,8 +358,13 @@ button:disabled {
     margin-left: 0px;
     font-size: 0.6em;
     font-family: 'Press Start 2P', cursive;
+    box-shadow: 3px 3px 0 rgb(41, 41, 41);
     padding: 7px 3px 5px 10px;
     display: none;
+}
+
+.bet-button:active, .bet-button:hover {
+    background-color: rgb(156, 0, 0);
 }
 
 /* .horse-container > button:last-of-type::before {
@@ -289,18 +392,34 @@ button:disabled {
 } */
 
 .user-container {
-    height: 220px;
+    height: 440px;
     width: 100vw;
     background-image: url("../assets/user/tile.png");
     background-color: grey;
     display: block;
     position: fixed;
-    bottom: 0;
+    bottom: -200px;
     left: 0;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+    transform: translateY(0px);
+    z-index: 4;
+}
+
+.expanded {
+    animation: translateUp 0.8s ease;
+    transform: translateY(-200px);
+}
+
+.retracted {
+    animation: translateDown 0.8s ease;
+    transform: translateY(0px);
+}
+
+#lower-content {
+    margin-top: 20px;
 }
 
 #user-display-container {
@@ -310,6 +429,14 @@ button:disabled {
     align-items: center;
     padding: 0px 20px;
     margin: 0 0 5px 0;
+}
+
+.flex-container {
+    height: 220px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 #info-container {
@@ -338,6 +465,27 @@ button:disabled {
     background-color: rgb(0, 73, 0);
 }
 
+#menu-button {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    padding: 2px 10px;
+    font-size: 0.9em;
+    z-index: 5;
+    background-color: #616161a2;
+    border: 2px solid rgba(29, 29, 29, 0.459);
+    box-shadow: 2px 2px 0 rgb(41, 41, 41);
+    -webkit-box-shadow: 2px 2px 0 rgb(41, 41, 41);
+    -moz-box-shadow: 2px 2px 0 rgb(41, 41, 41);
+}
+
+#menu-button:hover, #menu-button:active {
+    background-color: #3a3939f8;
+    box-shadow: 0px 0px 0 rgb(41, 41, 41);
+    -webkit-box-shadow: 0px 0px 0 rgb(41, 41, 41);
+    -moz-box-shadow: 0px 0px 0 rgb(41, 41, 41);
+}
+
 /* #info-container {
     width: 400px;
     height: 250px;
@@ -358,8 +506,19 @@ button:disabled {
     margin-bottom: 5px;
 }
 
-#user-bet-text {
-    /* remove border? */
+#user-funds-text {
+    position: relative;
+}
+
+.damage-text {
+    position: absolute;
+    top: -20px;
+    left: -18px;
+    z-index: 3;
+    color: rgba(0, 0, 0, 0);
+    animation: fadeAway 0.7s ease;
+    font-size: 1.1em;
+    text-shadow: -2px -2px 0 rgba(0, 0, 0, 0), 2px -2px 0 rgba(0, 0, 0, 0), -2px 2px 0 rgba(0, 0, 0, 0), 2px 2px 0 rgba(0, 0, 0, 0);
 }
 
 #dollar-container {
@@ -387,14 +546,26 @@ button:disabled {
 }
 
 .dollar-button:hover {
-    background: linear-gradient(0deg, rgba(59, 59, 59, 0.3), rgba(82, 82, 82, 0.3)),url('../assets/user/dollar_bill.jpg');
+    background: linear-gradient(0deg, rgba(59, 59, 59, 0.13), rgba(59, 59, 59, 0.13)),url('../assets/user/dollar_bill.jpg');
     background-size: 114px;
     transition: all 0.3s ease;
+    box-shadow: 5px 5px 0 rgb(41, 41, 41);
+    -webkit-box-shadow: 5px 5px 0 rgb(41, 41, 41);
+    -moz-box-shadow: 5px 5px 0 rgb(41, 41, 41);
+}
+
+.dollar-button:active {
+    background: linear-gradient(0deg, rgba(59, 59, 59, 0.404), rgba(59, 59, 59, 0.404)),url('../assets/user/dollar_bill.jpg');
+    background-size: 114px;
+    transition: all 0.2s ease;
+    box-shadow: 0px 0px 0 rgb(41, 41, 41);
+    -webkit-box-shadow: 0px 0px 0 rgb(41, 41, 41);
+    -moz-box-shadow: 0px 0px 0 rgb(41, 41, 41);
 }
 
 /* RESPONSIVE STYLING */
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 740px) {
     button {
         padding: 7px 20px;
         margin: 8px auto;
@@ -412,9 +583,15 @@ button:disabled {
     }
 
     .user-container {
-        height: 235px;
+        height: 455px;
         flex-direction: column;
         justify-content: flex-start;
+    }
+
+    .flex-container {
+        height: 235px;
+        flex-direction: column-reverse;
+        justify-content: flex-end;
     }
 
     #user-display-container {
@@ -433,6 +610,10 @@ button:disabled {
         justify-content: center;
         padding: 0;
         margin-bottom: 0px;
+    }
+
+    .damage-text {
+        left: -15px;
     }
 
     #dollar-container {

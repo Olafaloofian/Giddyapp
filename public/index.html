@@ -72,25 +72,33 @@
             </div>
         </div>
         <div class="user-container">
-            <div id="user-display-container">
-                <div id="info-container">
-                    <div id="user-bet" class="user-info">
-                        <span id="user-bet-text">Make a bet!</span>
-                    </div>
-                    <div id="user-funds-container" class="user-info">
-                        Your funds: $<span id="user-funds-text">1000</span>
+            <div class="flex-container">
+                <div id="dollar-container">
+                    <button class="green-button dollar-button" id="5-bet" onclick="user.placeDollarBet(5)">5</button>
+                    <button class="green-button dollar-button" id="10-bet" onclick="user.placeDollarBet(10)">10</button>
+                    <button class="green-button dollar-button" id="20-bet" onclick="user.placeDollarBet(20)">20</button>
+                    <button class="green-button dollar-button" id="50-bet" onclick="user.placeDollarBet(50)">50</button>
+                    <button id="start-button" onclick="startRace()">Start Race!</button>
+                    <button class="green-button" id="reset-button" onclick="resetRace()">Play Again?</button>
+                </div>
+                <div id="user-display-container">
+                    <div id="info-container">
+                        <div id="user-bet" class="user-info">
+                            <span id="user-bet-text">Make a bet!</span>
+                        </div>
+                        <div id="user-funds-container" class="user-info">
+                            Your funds: $<div id="user-funds-text">1000</div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div id="dollar-container">
-                <button class="green-button dollar-button" id="5-bet" onclick="user.placeDollarBet(5)">5</button>
-                <button class="green-button dollar-button" id="10-bet" onclick="user.placeDollarBet(10)">10</button>
-                <button class="green-button dollar-button" id="20-bet" onclick="user.placeDollarBet(20)">20</button>
-                <button class="green-button dollar-button" id="50-bet" onclick="user.placeDollarBet(50)">50</button>
-                <button id="start-button" onclick="startRace()">Start Race!</button>
-                <button class="green-button" id="reset-button" onclick="resetRace()">Play Again?</button>
+            <div id="lower-content" class="flex-container">
+                <button class="green-button">Login</button>
+                <button class="green-button">Show Tutorial</button>
+                <button class="green-button">About</button>
             </div>
         </div>
+        <button id="menu-button" onclick="toggleMenu()">▲</button>
     </div>
 </body>
 </html>

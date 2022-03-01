@@ -54,3 +54,17 @@ function resetRace() {
     document.getElementById("main").scrollLeft = 0
 }
 
+function toggleMenu() {
+    let menuElement = document.querySelector(".user-container")
+    let menuButton = document.getElementById("menu-button")
+    if(menuElement.classList.contains("expanded")) {
+        menuElement.classList.remove("expanded")
+        menuElement.classList.add("retracted")
+        menuButton.textContent = "▲"
+    } else {
+        menuElement.classList.add("expanded")
+        menuElement.classList.remove("retracted")
+        menuButton.textContent = "▼"
+    }
+}
+
