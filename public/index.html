@@ -26,7 +26,9 @@
     <meta name="theme-color" content="#ffffff">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="stylesheet" href="../src/main.css"/>
+    <script src="../src/confetti.js"></script>
     <script src="../src/utilities.js"></script>
+    <script src="../src/user.js"></script>
     <script src="../src/horse.js"></script>
     <script src="../src/app.js"></script>
     <title>Giddyapp</title>
@@ -35,42 +37,57 @@
     <div id="main">
         <span id="win-message"></span>
         <div class="race-container">
+            <div id="win-popup">
+                <div>
+                    YOU WON
+                    <div>
+                        <span>$</span><span id="win-amount">0</span>
+                    </div>
+                </div>
+            </div>
             <div id="raceway">
                 <div class="horse-container">
                     <img id="Maximus" class="horse" class="horse-image" src="../assets/Maximus/tile015.png" />
-                    <span class="temp-name">Maximus</span>
-                    <button class="bet-button">BET!</button>
+                    <button class="bet-button" onclick="user.placeHorseBet('Maximus')">Maximus</button>
                 </div>
                 <div class="horse-container">
                     <img id="Eclipse" class="horse" src="../assets/Eclipse/tile015.png" />
-                    <span class="temp-name">Eclipse</span>
-                    <button class="bet-button">BET!</button>
+                    <button class="bet-button" onclick="user.placeHorseBet('Eclipse')">Eclipse</button>
                 </div>
                 <div class="horse-container">
                     <img id="Bullseye" class="horse" class="horse-image" src="../assets/Bullseye/tile015.png" />
-                    <span class="temp-name">Bullseye</span>
-                    <button class="bet-button">BET!</button>
+                    <button class="bet-button" onclick="user.placeHorseBet('Bullseye')">Bullseye</button>
                 </div>
                 <div class="horse-container">
                     <img id="Poncho" class="horse" class="horse-image" src="../assets/Poncho/tile015.png" />
-                    <span class="temp-name">Poncho</span>
-                    <button class="bet-button">BET!</button>
+                    <button class="bet-button" onclick="user.placeHorseBet('Poncho')">Poncho</button>
                 </div>
                 <div class="horse-container">
                     <img id="Sunshine" class="horse" class="horse-image" src="../assets/Sunshine/tile015.png" />
-                    <span class="temp-name">Sunshine</span>
-                    <button class="bet-button">BET!</button>
+                    <button class="bet-button" onclick="user.placeHorseBet('Sunshine')">Sunshine</button>
                 </div>
                 <div id="finish-line"></div>
             </div>
         </div>
         <div class="user-container">
-            <button class="green-button" id="5-bet">$5</button>
-            <button class="green-button" id="10-bet">$10</button>
-            <button class="green-button" id="20-bet">$20</button>
-            <button class="green-button" id="50-bet">$50</button>
-            <button id="start-button" onclick="startRace()">Start Race!</button>
-            <button class="green-button" id="reset-button" onclick="resetRace()">Play Again?</button>
+            <div id="dollar-container">
+                <button class="green-button dollar-button" id="5-bet" onclick="user.placeDollarBet(5)">5</button>
+                <button class="green-button dollar-button" id="10-bet" onclick="user.placeDollarBet(10)">10</button>
+                <button class="green-button dollar-button" id="20-bet" onclick="user.placeDollarBet(20)">20</button>
+                <button class="green-button dollar-button" id="50-bet" onclick="user.placeDollarBet(50)">50</button>
+            </div>
+            <div id="user-display-container">
+                <div id="info-container">
+                    <div id="user-bet" class="user-info">
+                        <span id="user-bet-text">Make a bet!</span>
+                    </div>
+                    <div id="user-funds-container" class="user-info">
+                        Your funds: $<span id="user-funds-text">1000</span>
+                    </div>
+                </div>
+                <button id="start-button" onclick="startRace()">Start Race!</button>
+                <button class="green-button" id="reset-button" onclick="resetRace()">Play Again?</button>
+            </div>
         </div>
     </div>
 </body>

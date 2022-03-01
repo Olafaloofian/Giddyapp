@@ -17,7 +17,8 @@ border: 0;
 font-size: 100%;
 font: inherit;
 vertical-align: baseline;
-box-sizing: border-box
+box-sizing: border-box;
+font-family: 'VT323', monospace;
 }
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -45,16 +46,35 @@ html {
 box-sizing:border-box
 }
 * {
-box-sizing:inherit
+box-sizing:inherit;
+
+
 }
 
 /* END CSS RESET */
+
+/* ANIMATIONS */
+
+@keyframes colorFlash {  
+    0% { background-color: rgb(0, 15, 223); }
+    50% { background-color: rgb(0, 15, 223); }
+    51% { background-color: rgb(33, 165, 0); }
+    100% { background-color: rgb(33, 165, 0); }
+}
+
+@-webkit-keyframes colorFlash {  
+    0% { background-color: rgb(0, 15, 223); }
+    50% { background-color: rgb(0, 15, 223); }
+    51% { background-color: rgb(33, 165, 0); }
+    100% { background-color: rgb(33, 165, 0); }
+}
+
+/* MAIN STYLES */
 
 button {
     color: white;
     background-color: maroon;
     border: 3px solid rgb(29, 29, 29);
-    font-size: 20px;
     text-decoration: none;
     text-shadow: -1px -1px 1px #616161;
     position: relative;
@@ -73,7 +93,7 @@ button {
 
 button:hover {
     background-color: rgb(92, 0, 0);
-    box-shadow: 0px 0px 0 #666;
+    box-shadow: 0px 0px 0 rgba(102, 102, 102, 0.493);
     -webkit-box-shadow: 0px 0px 0 #666;
     -moz-box-shadow: 0px 0px 0 #666;
 }
@@ -121,6 +141,41 @@ button:disabled {
     text-align: center;
 }
 
+#win-popup {
+    display: none;
+    position: absolute;
+    color: white;
+    top: 39%;
+    left: 50%;
+    margin-top: -10vh;  /* Negative half of height - CENTERS */
+    margin-left: -150px;  /* Negative half of width - CENTERS */
+    z-index: 3;
+    text-align: center;
+    vertical-align: middle;
+    width: 300px;
+    height: 20vh;
+    padding-top: 8px;
+    background-color: rgb(0, 15, 223);
+    animation: colorFlash 0.4s infinite;
+    -webkit-animation: colorFlash 0.4s infinite;
+    border: 3px solid rgb(29, 29, 29);
+}
+
+#win-popup > div {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2.7em;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#win-popup > div span {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8em;
+}
+
 #raceway {
     margin: 160px 50px 0 50px;
     height: 480px;
@@ -132,6 +187,7 @@ button:disabled {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
+    z-index: 1;
 }
 
 #raceway:before {
@@ -187,12 +243,13 @@ button:disabled {
     font-size: 2em;
 }
 
-.horse-container > button:last-of-type {
-    margin-left: 50px;
+.bet-button {
+    background-color: rgb(185, 0, 0);
+    margin-left: 0px;
     font-size: 0.6em;
     font-family: 'Press Start 2P', cursive;
     padding: 7px 3px 5px 10px;
-    /* border: none; */
+    display: none;
 }
 
 /* .horse-container > button:last-of-type::before {
@@ -214,32 +271,51 @@ button:disabled {
     padding-right: 60px;
 }
 
-.temp-name {
+/* .temp-name {
     display: inherit;
     width: 100px;
-}
+} */
 
 .user-container {
-    height: 200px;
+    height: 220px;
     width: 100vw;
+    background-image: url("../assets/user/tile.png");
     background-color: grey;
     display: block;
     position: fixed;
     bottom: 0;
     left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#user-display-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0px 20px;
+    margin: 0 0 5px 0;
+}
+
+#info-container {
+    margin-right: 20px;
 }
 
 #reset-button {
     display: none;
-    position: fixed;
+    /* position: fixed;
     bottom: 30px;
-    right: 30px;
+    right: 30px; */
 }
 
 #start-button {
-    position: fixed;
+    /* position: fixed;
     bottom: 30px;
-    right: 30px;
+    right: 30px; */
+    display: none;
 }
 
 .green-button {
@@ -248,4 +324,128 @@ button:disabled {
 
 .green-button:hover {
     background-color: rgb(0, 73, 0);
+}
+
+/* #info-container {
+    width: 400px;
+    height: 250px;
+    border: 3px solid rgb(61, 61, 61);
+    background-color: rgb(255, 255, 255);
+} */
+
+.user-info {
+    width: 400px;
+    height: 50px;
+    border: 3px solid rgb(49, 49, 49);
+    background-color: rgb(236, 236, 236);
+    font-size: 2em;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 15px;
+    margin-bottom: 5px;
+}
+
+#user-bet-text {
+    /* remove border? */
+}
+
+#dollar-container {
+    margin: 20px;
+    width: 270px;
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.dollar-button {
+    /* display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; */
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+    width: 120px;
+    height: 63px;
+    background: linear-gradient(0deg, rgba(248, 248, 248, 0), rgba(255, 255, 255, 0)),url('../assets/user/dollar_bill.jpg');
+    background-size: 114px;
+    padding: 5px 0;
+}
+
+.dollar-button:hover {
+    background: linear-gradient(0deg, rgba(59, 59, 59, 0.3), rgba(82, 82, 82, 0.3)),url('../assets/user/dollar_bill.jpg');
+    background-size: 114px;
+    transition: all 0.3s ease;
+}
+
+/* RESPONSIVE STYLING */
+
+@media only screen and (max-width: 700px) {
+    button {
+        padding: 7px 20px;
+        margin: 8px auto;
+        font-size: 2em;
+    }
+
+    #win-message {
+        margin: 0;
+        font-size: calc(2vh + 1.5vw);
+    }
+
+    #raceway {
+        margin: 100px 50px 0 0;
+        height: 480px;
+        width: 1480px;
+        background-image: url("../assets/landscape/sand_dual.png");
+        background-size: 40px 40px;
+        background-color: lightgreen;
+        position: relative;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+    }
+
+    .user-container {
+        height: 300px;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    #user-display-container {
+        margin: 10px auto 0 auto;
+        flex-direction: column;
+    }
+
+    #info-container {
+        margin-right: 0px;
+    }
+
+    .user-info {
+        width: 90vw;
+        height: 40px;
+        font-size: 1.6em;
+        justify-content: center;
+        padding: 0;
+        margin-bottom: 0px;
+    }
+
+    #dollar-container {
+        height: 120px;
+        margin: 8px auto 10px auto;
+    }
+
+    .dollar-button {
+        font-size: 1.8em;
+        width: 96px;
+        height: 52px;
+        background-size: 90px;
+        padding: 2px 2px 9px 0;
+    }
+    
+    .dollar-button:hover {
+        transition: all 0.3s ease;
+        background-size: 90px;
+    }
 }

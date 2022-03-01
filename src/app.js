@@ -1,36 +1,47 @@
 let horseList = []
 var finishOrder = []
-var scrollInterval = null
+var raceStarted = false
 
 window.onload = (event) => {
     horseList = Array.from(document.querySelectorAll(".horse")).map((horseElement) => new Horse(horseElement.id))
     console.log('------------ horselist', horseList)
-    clearInterval(scrollInterval)
+    clearInterval(window.scrollInterval)
     scrollX()
+    document.getElementById('user-funds-text').textContent = user.funds
 }
 
 window.onresize = (event) => {
-    clearInterval(scrollInterval)
+    clearInterval(window.scrollInterval)
     scrollX()
     console.log('------------ RESIZED')
 }
 
+document.addEventListener('mouseup', function(e) {
+    var popup = document.getElementById('win-popup');
+    if (!popup.contains(e.target)) {
+        popup.style.display = 'none';
+        clearInterval(window.moneyInterval)
+    }
+});
+
 function startRace() {
+    raceStarted = true
     horseList.forEach((horse) => {
         horse.run()
     })
-    hideElements([".temp-name", ".bet-button"])
-    document.getElementById("start-button").disabled = true
-    document.getElementById("reset-button").style.display = "none"
+    hideElements([".bet-button", "#start-button", "#reset-button"])
 }
 
 function resetRace() {
+    raceStarted = false
     horseList.forEach((horse) => {
         horse.reset()
     })
     finishOrder = []
+    user.betAmount = 0
+    user.betHorse = null
     document.getElementById("start-button").disabled = false
-    showElements([".temp-name", ".bet-button"])
-    document.getElementById("reset-button").style.display = "none"
+    hideElements(["#reset-button"])
+    document.getElementById("user-bet-text").textContent = "Make a bet!"
 }
 

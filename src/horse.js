@@ -12,6 +12,7 @@ class Horse {
     // Reset race
     reset(){
         clearInterval(this.movementInterval);
+        clearInterval(window.scrollInterval);
         this.horseElement.src = `../assets/${this.id}/tile015.png`
         this.horseElement.style.left = "0px";
         this.finishedStatus = false
@@ -23,11 +24,19 @@ class Horse {
     stop(){
         if (!finishOrder.length) {
             document.getElementById("win-message").textContent = `${this.id.toUpperCase()} WINS!`
+            if(user.betHorse === this.id) {
+                showWinPopup()
+                user.funds += (user.betAmount * 5)
+                document.getElementById("user-funds-text").textContent = user.funds
+                document.getElementById("user-bet-text").textContent = "WINNER!"
+            } else {
+                document.getElementById("user-bet-text").textContent = "Better luck next time!"
+            }
         }
         finishOrder.push(this)
         clearInterval(this.movementInterval);
         clearTimeout(this.randomizeSpeedTimer);
-        clearInterval(scrollInterval);
+        clearInterval(window.scrollInterval);
         this.horseElement.src = `../assets/${this.id}/tile015.png`
         this.finishedStatus = true
         if (finishOrder.length === horseList.length) {

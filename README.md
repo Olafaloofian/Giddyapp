@@ -56,3 +56,21 @@ An online game where users can bet simulated money on a virtual horse race.
 - Buzz Games
 - Websockets multiplayer
 - Account with one daily play
+
+### TODO
+
+- Make square favicon
+- Make horse bet buttons have an arrow pointing left (started in CSS)
+- Create tooltips for initial game tutorial
+- Add click down css for dollar buttons
+- Make "floating damage numbers" animation for betting (subtracts from Your funds)
+- Fix intervals running even after race ends
+- localStorage solution
+- Audio
+
+### Attributions
+
+- https://github.com/CoderZ90/confetti/blob/main/confetti.js
+- https://jamiebrownhill.itch.io/solaria-demo
+- https://ninjikin.itch.io/grass
+- https://opengameart.org/content/lpc-horse
