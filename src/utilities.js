@@ -34,7 +34,6 @@ function hideElements(identifierArray) {
 // Show elements based on an array of ".class-names"
 function showElements(identifierArray) {
     identifierArray.forEach(className => {
-        console.log('------------ document.querySelectorAll(identifierArray)', document.querySelectorAll(identifierArray))
         document.querySelectorAll(className).forEach((element) => {
             element.style.display = "block"
         })
