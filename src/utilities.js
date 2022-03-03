@@ -17,6 +17,11 @@ window.clearInterval = function (intervalId) {
     return window.defaultClearInterval(intervalId);
 };
 
+// Set user data
+function saveUserData() {
+    localStorage.setItem("userData", JSON.stringify(userData))
+}
+
 // Generate a random number between to integers
 function randomInteger(min, max) { // min and max included 
     return Math.floor(Math.random() * (max - min + 1) + min)
@@ -75,6 +80,9 @@ function showWinPopup() {
             popup.style.display = 'none';
             document.getElementById("win-amount").textContent = 0
             clearInterval(window.moneyInterval)
+            userData.betHorse = null
+            userData.betAmount = 0
+            saveUserData()
             this.removeEventListener('mouseup', hidePopup);
         }
     });

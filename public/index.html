@@ -89,18 +89,23 @@
                             <span id="user-bet-text">Make a bet!</span>
                         </div>
                         <div id="user-funds-container" class="user-info">
-                            Your funds: $<div id="user-funds-text">1000</div>
+                            Your funds: $<div id="user-funds-text">0</div>
                         </div>
                     </div>
                 </div>
             </div>
             <div id="lower-content" class="flex-container">
-                <button class="green-button">Login</button>
+                <button class="green-button" onclick="resetUser()">Reset User</button>
                 <button id="tutorial-button" class="green-button" onclick="showTutorial()">Show Tutorial</button>
-                <button class="green-button">About</button>
+                <button class="green-button" onclick="showAbout()">About</button>
+            </div>
+            <div id="about">
+                <button id="about-button" class="small-button" onclick="hideAbout()">x</button>
+                <h1>Bet money, race horses, and WIN!!!</h1>
+                <footer>Designed and developed by <a href="michaelkerr.tech">Michael Kerr</a>. Special thanks to <a href="https://github.com/CoderZ90/confetti/blob/main/confetti.js">CoderZ90</a>, <a href="https://jamiebrownhill.itch.io/solaria-demo">jamiebrownhill</a>, <a href="https://ninjikin.itch.io/grass">ninjikin</a>, and <a href="https://opengameart.org/content/lpc-horse">bluecarrot16</a>.</footer>
             </div>
         </div>
-        <button id="menu-button" onclick="toggleMenu()">▲</button>
+        <button id="menu-button" class="small-button" onclick="toggleMenu()">▲</button>
     </div>
 </body>
 </html>

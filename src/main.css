@@ -47,8 +47,9 @@ box-sizing:border-box
 }
 * {
 box-sizing:inherit;
-
-
+}
+a {
+    color: white;
 }
 
 /* END CSS RESET */
@@ -207,6 +208,7 @@ button:disabled {
     height: 100vh;
     width: 100vw;
     background-image: url("../assets/landscape/grass1.png");
+    background-color: rgb(99,171,63);
     background-size: 30px 30px;
     background-repeat: repeat;
     overflow-y: hidden;
@@ -357,7 +359,7 @@ button:disabled {
     width: 1678px;
     background-image: url("../assets/landscape/sand_dual.png");
     background-size: 40px 40px;
-    background-color: lightgreen;
+    background-color: rgb(240,184,68);
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
@@ -459,7 +461,7 @@ button:disabled {
     height: 440px;
     width: 100vw;
     background-image: url("../assets/user/tile.png");
-    background-color: grey;
+    background-color: rgb(183,96,87);
     display: block;
     position: fixed;
     bottom: -200px;
@@ -500,7 +502,7 @@ button:disabled {
 .flex-container {
     height: 220px;
     width: 100%;
-    margin-top: 10px;
+    margin-top: 25px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -536,12 +538,17 @@ button:disabled {
     background-color: #616161;
 }
 
-#menu-button {
+.small-button {
     position: fixed;
     bottom: 10px;
     right: 10px;
     padding: 2px 10px;
     font-size: 0.9em;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     z-index: 5;
     background-color: #616161a2;
     border: 2px solid rgba(29, 29, 29, 0.459);
@@ -550,12 +557,13 @@ button:disabled {
     -moz-box-shadow: 2px 2px 0 rgb(41, 41, 41);
 }
 
-#menu-button:hover, #menu-button:active {
+.small-button:hover, .small-button:active {
     background-color: #3a3939f8;
     box-shadow: 0px 0px 0 rgb(41, 41, 41);
     -webkit-box-shadow: 0px 0px 0 rgb(41, 41, 41);
     -moz-box-shadow: 0px 0px 0 rgb(41, 41, 41);
 }
+
 
 /* #info-container {
     width: 400px;
@@ -623,6 +631,7 @@ button:disabled {
     width: 120px;
     height: 63px;
     background: linear-gradient(0deg, rgba(248, 248, 248, 0), rgba(255, 255, 255, 0)),url('../assets/user/dollar_bill.jpg');
+    background-color: rgb(203,217,193);
     background-size: 114px;
     padding: 5px 0;
 }
@@ -643,6 +652,44 @@ button:disabled {
     box-shadow: 0px 0px 0 rgb(41, 41, 41);
     -webkit-box-shadow: 0px 0px 0 rgb(41, 41, 41);
     -moz-box-shadow: 0px 0px 0 rgb(41, 41, 41);
+}
+
+
+#about-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 5px 10px;
+    background-color: #757575a2;
+}
+
+#about-button:hover, #about-button:active {
+    background-color: #3a3939f8;
+}
+
+#about {
+    position: relative;
+    width: 90%;
+    height: 80%;
+    display: none;
+    color: white;
+    background-color: #3e171796;
+    border: 3px solid rgb(51, 51, 51);
+    flex-direction: column;
+    justify-content: center;
+    font-size: 30px;
+    text-align: center;
+    padding: 20px 15px;
+    margin: auto;
+}
+
+#about h1 {
+    font-size: 40px;
+    margin: 20px;
+}
+
+footer {
+    margin-bottom: 20px;
 }
 
 /* RESPONSIVE STYLING */
@@ -671,6 +718,7 @@ button:disabled {
     }
 
     .flex-container {
+        margin-top: 10px;
         height: 235px;
         flex-direction: column-reverse;
         justify-content: flex-end;
@@ -679,6 +727,7 @@ button:disabled {
     #lower-content {
         flex-direction: column;
         margin-top: 0px;
+        margin-bottom: 18px;
     }
 
     #user-display-container {
@@ -708,6 +757,10 @@ button:disabled {
         margin: 8px auto 10px auto;
     }
 
+    .green-button {
+        margin-bottom: 3px;
+    }
+
     .dollar-button {
         font-size: 1.8em;
         width: 96px;
@@ -728,9 +781,10 @@ button:disabled {
     }
 } */
 
-@media only screen and (max-height: 795px) {
+@media only screen and (max-height: 818px) {
     #raceway {
         height: 350px;
+        margin-top: 5vh;
     }
 
     .horse {
@@ -757,6 +811,25 @@ button:disabled {
     #win-popup {
         margin-top: -20vh;
         height: 30vh;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    #about {
+        font-size: 20px;
+    }
+    
+    #about h1 {
+        font-size: 30px;
+    }
+
+    #user-display-container {
+        font-size: 12px;
+    }
+
+    .bet-button {
+        padding: 5px 4px;
+        font-size: 7px;
     }
 }
 

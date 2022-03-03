@@ -18,13 +18,23 @@ window.onload = (event) => {
     } 
     //Route user
     router()
-    // Load user funds
-    document.getElementById('user-funds-text').textContent = userData.funds
     // Get local storage
-    if(localStorage.getItem("user")) {
-
+    if(localStorage.getItem("userData")) {
+        userData = JSON.parse(localStorage.getItem("userData"))
+        document.getElementById('user-funds-text').textContent = userData.funds
+        userData.betHorse = null
+        userData.betAmount = 0
+        saveUserData()
+    } else {
+        saveUserData()
     }
 }
+
+window.onbeforeunload = (event) => {
+    if(userData.betAmount) {
+        return "You still have a bet!"
+    }
+};
 
 window.onresize = (event) => {
     clearInterval(window.scrollInterval)
@@ -57,6 +67,7 @@ function resetRace() {
     finishOrder = []
     userData.betAmount = 0
     userData.betHorse = null
+    saveUserData()
     document.getElementById("start-button").disabled = false
     document.getElementById("tutorial-button").disabled = false
     document.getElementById("user-bet-text").textContent = "Make a bet!"
@@ -74,12 +85,25 @@ function toggleMenu() {
         menuElement.classList.add("retracted")
         menuButton.textContent = "▲"
         isMenuUp = false
+        hideAbout()
     } else {
         menuElement.classList.add("expanded")
         menuElement.classList.remove("retracted")
         menuButton.textContent = "▼"
         isMenuUp = true
     }
+}
+
+function showAbout() {
+    // hideElements(["#multi-container", "#lower-content", "#user-display-container"])
+    hideElements([".flex-container", "#menu-button"])
+    showElements(["#about"])
+}
+
+function hideAbout() {
+    // hideElements(["#multi-container", "#lower-content", "#user-display-container"])
+    hideElements(["#about"])
+    showElements([".flex-container", "#menu-button"])
 }
 
 async function showTutorial() {
@@ -154,7 +178,6 @@ async function showTutorial() {
         })
 
         tutorialButton.disabled = false
-        menuButton.style.display = "initial"
         isTutorialActive = false
     }
 }
