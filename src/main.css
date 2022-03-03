@@ -231,27 +231,27 @@ button:disabled {
     -moz-box-shadow: -5px 5px 0 rgb(41, 41, 41);
 }
 
-.tooltip::before {
+/* .tooltip::before {
     content: 'x';
     position: absolute;
     top: 0;
     right: 5px;
-}
+} */
 
 .arrow-down::after {
     content: '';
     position: absolute;
-    bottom: -15px;
+    bottom: -16px;
     left: 40%;
     width: 0; 
-    height: 0; 
+    height: 0;
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
     border-top: 15px solid rgb(0, 0, 0);
 }
 
 .arrow-up {
-    top: -20%;
+    top: -8%;
 }
 
 .display-tooltip {
@@ -259,9 +259,9 @@ button:disabled {
     left: 30%
 }
 
-.display-tooltip::before {
+/* .display-tooltip::before {
     content: ''
-}
+} */
 
 .start-tooltip {
     top: -40%;
@@ -270,7 +270,7 @@ button:disabled {
 .arrow-up::after {
     content: '';
     position: absolute;
-    top: -15px;
+    top: -18px;
     left: 42%;
     width: 0; 
     height: 0; 
@@ -419,7 +419,7 @@ button:disabled {
 
 .bet-button {
     background-color: rgb(185, 0, 0);
-    margin-left: 0px;
+    margin: 0;
     font-size: 0.6em;
     font-family: 'Press Start 2P', cursive;
     box-shadow: 3px 3px 0 rgb(41, 41, 41);
@@ -592,7 +592,7 @@ button:disabled {
     text-shadow: -2px -2px 0 rgba(0, 0, 0, 0), 2px -2px 0 rgba(0, 0, 0, 0), -2px 2px 0 rgba(0, 0, 0, 0), 2px 2px 0 rgba(0, 0, 0, 0);
 }
 
-#dollar-container {
+#multi-container {
     position: relative;
     margin: 20px;
     width: 270px;
@@ -602,6 +602,16 @@ button:disabled {
     align-items: center;
     justify-content: flex-start;
     flex-wrap: wrap;
+}
+
+#dollar-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 .dollar-button {
@@ -693,7 +703,7 @@ button:disabled {
         left: -15px;
     }
 
-    #dollar-container {
+    #multi-container {
         height: 120px;
         margin: 8px auto 10px auto;
     }

@@ -24,11 +24,11 @@ class Horse {
     stop(){
         if (!finishOrder.length) {
             // document.getElementById("win-message").textContent = `${this.id.toUpperCase()} WINS!`
-            // showElements(["#win-message"])
-            if(user.betHorse === this.id) {
+            showElements(["#menu-button"])
+            if(userData.betHorse === this.id) {
                 showWinPopup()
-                user.funds += (user.betAmount * 5)
-                document.getElementById("user-funds-text").textContent = user.funds
+                userData.funds += (userData.betAmount * 5)
+                document.getElementById("user-funds-text").textContent = userData.funds
                 document.getElementById("user-bet-text").textContent = `${this.id.toUpperCase()} WINS!`
             } else {
                 document.getElementById("user-bet-text").textContent = `${this.id} wins.`
@@ -44,7 +44,7 @@ class Horse {
         if (finishOrder.length === horseList.length) {
             document.getElementById("reset-button").style.display = "initial"
         }
-        console.log('------------ finishOrder', finishOrder)
+        console.log('------------ Horse Finish Order:', finishOrder)
     }
 
     // Will be called repeatedly to randomize speed across the course

@@ -1,4 +1,4 @@
-// Special interval functions to allow minute control
+// Special interval functions to allow minute control REMOVE LATER
 window.defaultSetInterval = window.setInterval;
 window.defaultClearInterval = window.clearInterval;
 window.activeIntervals = 0;
@@ -35,7 +35,7 @@ function hideElements(identifierArray) {
 function showElements(identifierArray) {
     identifierArray.forEach(className => {
         document.querySelectorAll(className).forEach((element) => {
-            element.style.display = "block"
+            element.style.display = "flex"
         })
     })
 }
@@ -44,7 +44,7 @@ function showElements(identifierArray) {
 function scrollX() {
     if(window.innerWidth < 1735 && raceStarted) {
         window.scrollInterval = setInterval(() => {
-            console.log('------------ RUNNING')
+            console.log('------------ AUTOSCROLL RUNNING')
             horseList.forEach((horse) => {
                 let boundingBox = horse.horseElement.getBoundingClientRect()
                 if(boundingBox.right > window.innerWidth) {
@@ -59,14 +59,23 @@ function scrollX() {
 function showWinPopup() {
     let winAmountElement = document.getElementById("win-amount")
     window.moneyInterval = setInterval(() => {
-        console.log('------------ MONEY INTERVAL')
-        if(Number(winAmountElement.textContent) < (user.betAmount * 5)) {
+        console.log('------------ MONEY INCREMENT RUNNING')
+        if(Number(winAmountElement.textContent) < (userData.betAmount * 5)) {
             winAmountElement.textContent = Number(winAmountElement.textContent) + 5
         }
-    }, 70);
+    }, (userData.betAmount < 100 ? 70 : userData.betAmount < 350 ? 30 : userData.betAmount < 500 ? 10 : 4));
     showElements(["#win-popup"])
     confetti.start()
     setTimeout(() => {
         confetti.stop()
     }, 4000);
+    document.addEventListener('mouseup', function hidePopup(e) {
+        var popup = document.getElementById('win-popup');
+        if (!popup.contains(e.target)) {
+            popup.style.display = 'none';
+            document.getElementById("win-amount").textContent = 0
+            clearInterval(window.moneyInterval)
+            this.removeEventListener('mouseup', hidePopup);
+        }
+    });
 }

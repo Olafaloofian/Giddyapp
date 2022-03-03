@@ -68,7 +68,9 @@ An online game where users can bet simulated money on a virtual horse race.
 - Deprecate "#win-message"
 - Make background move with scroll
 - Load page after all assets are available
+- Show colored backgrounds so images can load on top
 - Clean up CSS
+- Routing
 
 ### Attributions
 
