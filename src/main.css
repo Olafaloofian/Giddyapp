@@ -775,16 +775,24 @@ footer {
     }
 }
 
-/* @media only screen and (max-height: 870px) {
+@media only screen and (max-height: 890px) {
     #raceway {
-        margin: 3vh 50px 0 50px;
+        margin: 0 50px 0 50px;
     }
-} */
 
-@media only screen and (max-height: 818px) {
+    #main {
+        padding-top: 10vh;
+    }
+}
+
+@media only screen and (max-height: 800px) {
     #raceway {
         height: 350px;
-        margin-top: 5vh;
+        /* margin-top: 5vh; */
+    }
+
+    #main {
+        padding-top: 5vh;
     }
 
     .horse {
