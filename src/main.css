@@ -633,7 +633,7 @@ button:disabled {
     background: linear-gradient(0deg, rgba(248, 248, 248, 0), rgba(255, 255, 255, 0)),url('../assets/user/dollar_bill.jpg');
     background-color: rgb(203,217,193);
     background-size: 114px;
-    padding: 5px 0;
+    padding: 0 2px 5px 0;
 }
 
 .dollar-button:hover {
