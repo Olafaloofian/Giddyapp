@@ -69,6 +69,8 @@ An online game where users can bet simulated money on a virtual horse race.
 - Clean up CSS
 - Routing
 - Fix styling for short + wide windows
+- Clean up public folder
+- Remove parent pathing in html (moved to root)
 
 ### Attributions
 
