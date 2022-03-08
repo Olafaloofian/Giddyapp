@@ -78,3 +78,6 @@ An online game where users can bet simulated money on a virtual horse race.
 - https://jamiebrownhill.itch.io/solaria-demo
 - https://ninjikin.itch.io/grass
 - https://opengameart.org/content/lpc-horse
+- https://freesound.org/people/craigsmith/sounds/438633/
+- https://freesound.org/people/kiddpark/sounds/201159/
+- https://soundbible.com/1302-Galloping-Horse.html

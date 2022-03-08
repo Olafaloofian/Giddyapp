@@ -21,19 +21,20 @@ function placeDollarBet(amount) {
         document.getElementById("tutorial-button").disabled = true
         if(amount > userData.funds) {
             clearTimeout(window.fundsAlert)
-            userFundsContainer.innerHTML = `<div style='color: rgb(211, 0, 0)'>Not enough funds! $${userData.funds}</div>`
+            userFundsContainer.innerHTML = `<div style='color: rgb(211, 0, 0)'>Not enough funds! $<span id="user-funds-text">${userData.funds}</span></div>`
             window.fundsAlert = setTimeout(() => {
                 userFundsContainer.innerHTML = `Your funds: $<div id="user-funds-text">${userData.funds}</div>`
             }, 2000);
             return
         }
 
+        cashSound.currentTime = 0
+        cashSound.play()
         userData.betAmount += amount
         userData.funds -= amount
         saveUserData()
         document.getElementById("user-bet-text").textContent = `You bet $${userData.betAmount}!`
         userFundsText.textContent = userData.funds
-        // userFundsContainer.innerHTML = `Your funds: $<div id="user-funds-text">${userData.funds}</div>`
         showElements([".bet-button"])
 
         // Floating numbers indicating subtraction of funds
@@ -41,7 +42,6 @@ function placeDollarBet(amount) {
         damageText.textContent = `-$${amount}`
         damageText.className = "damage-text"
         userFundsText.appendChild(damageText)
-
     }
 }
 

@@ -6,7 +6,8 @@ class Horse {
         this.movementInterval = null
         this.randomizeSpeedTimer = null
         this.horseElement = document.getElementById(this.id)
-        this.finishedStatus = false
+        this.finishedStatus = false,
+        this.gallopSound = new Audio('../assets/sounds/Gallop.mp3');
     }
 
     // Reset race
@@ -16,14 +17,13 @@ class Horse {
         this.horseElement.src = `./assets/${this.id}/tile015.png`
         this.horseElement.style.left = "0px";
         this.finishedStatus = false
-        // hideElements(["#win-message"])
-        // document.getElementById("win-message").textContent = ''
     }
 
     // Stop horse movement
     stop(){
+        this.gallopSound.pause()
+        this.gallopSound.currentTime = 0
         if (!finishOrder.length) {
-            // document.getElementById("win-message").textContent = `${this.id.toUpperCase()} WINS!`
             showElements(["#menu-button"])
             if(userData.betHorse === this.id) {
                 showWinPopup()
@@ -33,6 +33,7 @@ class Horse {
                 document.getElementById("user-funds-text").textContent = userData.funds
                 document.getElementById("user-bet-text").textContent = `${this.id.toUpperCase()} WINS!`
             } else {
+                loseSound.play()
                 userData.betHorse = null
                 userData.betAmount = 0
                 saveUserData()
@@ -76,6 +77,10 @@ class Horse {
 
     // Run across the screen at a random speed
     run(){
+        this.gallopSound.play()
+        this.gallopSound.addEventListener('ended', function() {
+            this.play()
+        }, false);
         this.horseElement.src = `./assets/${this.id}/run.gif` // Change the image to a running gif
         this.setMovementSpeed()
     }

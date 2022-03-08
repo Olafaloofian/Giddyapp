@@ -1,8 +1,15 @@
 let horseList = []
 var finishOrder = []
 var raceStarted = false
+var loseSound = new Audio('../assets/sounds/Disappointed.mp3')
+var cheerSound = new Audio('../assets/sounds/Cheer.mp3')
+var bugleSound = new Audio('../assets/sounds/Bugle.mp3')
+var startSound = new Audio('../assets/sounds/Pistol.mp3')
+var cashSound = new Audio('../assets/sounds/Cash.mp3')
+var winSound = new Audio('../assets/sounds/Win.mp3')
 let isTutorialActive = false
 let isMenuUp = false
+let isMuted = false
 
 window.onload = (event) => {
     // Set scroll position correctly on mobile
@@ -48,10 +55,24 @@ function router(evt) {
 };
 
 function startRace() {
+    let countdownPopup = document.getElementById("countdown-popup")
+    showElements(["#countdown-popup"])
+    bugleSound.play()
+    setTimeout(() => {
+        countdownPopup.innerText = "2"
+    }, 1000);
+    setTimeout(() => {
+        countdownPopup.innerText = "1"
+    }, 2000);
+    setTimeout(() => {
+        startSound.play()
+        hideElements(["#countdown-popup"])
+        countdownPopup.innerText = "3"
+        horseList.forEach((horse) => {
+            horse.run()
+        })
+    }, 3000);
     raceStarted = true
-    horseList.forEach((horse) => {
-        horse.run()
-    })
     if(isMenuUp) {
         toggleMenu()
     }
@@ -94,16 +115,81 @@ function toggleMenu() {
     }
 }
 
+function toggleMute() {
+    let muteButton = document.getElementById("mute-button")
+    if(!isMuted) {
+        isMuted = true
+        loseSound.muted = true;
+        loseSound.pause();
+        winSound.muted = true;
+        winSound.pause();
+        bugleSound.muted = true;
+        bugleSound.pause();
+        startSound.muted = true;
+        startSound.pause();
+        cashSound.muted = true;
+        cashSound.pause();
+        horseList.forEach(horse => {
+            horse.gallopSound.muted = true
+            horse.gallopSound.pause()
+        })
+        muteButton.innerText = "Unmute"
+    } else {
+        isMuted = false
+        loseSound.muted = false;
+        winSound.muted = false;
+        bugleSound.muted = false;
+        startSound.muted = false;
+        cashSound.muted = false;
+        horseList.forEach(horse => {
+            horse.gallopSound.muted = false
+        })
+        muteButton.innerText = "Mute"
+    }
+}
+
 function showAbout() {
-    // hideElements(["#multi-container", "#lower-content", "#user-display-container"])
     hideElements([".flex-container", "#menu-button"])
     showElements(["#about"])
 }
 
 function hideAbout() {
-    // hideElements(["#multi-container", "#lower-content", "#user-display-container"])
     hideElements(["#about"])
     showElements([".flex-container", "#menu-button"])
+}
+
+// Show win popup
+function showWinPopup() {
+    cheerSound.play()
+    winSound.play()
+    winSound.addEventListener('ended', loopSound, false);
+    let winAmountElement = document.getElementById("win-amount")
+    window.moneyInterval = setInterval(() => {
+        console.log('------------ MONEY INCREMENT RUNNING')
+        if(Number(winAmountElement.textContent) < (userData.betAmount * 5)) {
+            winAmountElement.textContent = Number(winAmountElement.textContent) + 5
+        } else {
+            clearInterval(window.moneyInterval)
+            winSound.currentTime = 0
+            winSound.pause()
+        }
+    }, (userData.betAmount < 100 ? 70 : userData.betAmount < 350 ? 30 : userData.betAmount < 500 ? 10 : 4));
+    showElements(["#win-popup"])
+    confetti.start()
+    setTimeout(() => {
+        confetti.stop()
+    }, 4000);
+    document.addEventListener('mouseup', function hidePopup(e) {
+        var popup = document.getElementById('win-popup');
+        if (!popup.contains(e.target)) {
+            popup.style.display = 'none';
+            document.getElementById("win-amount").textContent = 0
+            userData.betHorse = null
+            userData.betAmount = 0
+            saveUserData()
+            this.removeEventListener('mouseup', hidePopup);
+        }
+    });
 }
 
 async function showTutorial() {

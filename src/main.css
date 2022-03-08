@@ -317,7 +317,7 @@ button:disabled {
     text-align: center; */
 }
 
-#win-popup {
+.popup {
     display: none;
     position: fixed;
     color: white;
@@ -331,6 +331,18 @@ button:disabled {
     width: 300px;
     height: 20vh;
     padding-top: 8px;
+}
+
+#countdown-popup {
+    top: 30%;
+    color: darkgreen;
+    font-size: 200px;
+    justify-content: center;
+    align-items: flex-start;
+    text-shadow: -3px -3px 0 rgb(29, 29, 29), 3px -3px 0 rgb(29, 29, 29), -3px 3px 0 rgb(29, 29, 29), 3px 3px 0 rgb(29, 29, 29);
+}
+
+#win-popup {
     background-color: rgb(0, 15, 223);
     animation: colorFlash 0.4s infinite;
     -webkit-animation: colorFlash 0.4s infinite;
@@ -487,6 +499,10 @@ button:disabled {
 #lower-content {
     flex-direction: row;
     margin-top: 40px;
+}
+
+#lower-content .green-button {
+    width: 300px;
 }
 
 #user-display-container {
@@ -725,9 +741,14 @@ footer {
     }
 
     #lower-content {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
         margin-top: 0px;
         margin-bottom: 18px;
+    }
+
+    #lower-content .green-button {
+        width: 180px;
     }
 
     #user-display-container {

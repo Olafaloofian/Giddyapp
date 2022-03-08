@@ -39,13 +39,16 @@
             <span id="win-message"></span>
         </div> -->
         <div class="race-container">
-            <div id="win-popup">
+            <div id="win-popup" class="popup">
                 <div>
                     YOU WON
                     <div>
                         <span>$</span><span id="win-amount">0</span>
                     </div>
                 </div>
+            </div>
+            <div id="countdown-popup" class="popup">
+                3
             </div>
             <div id="raceway">
                 <div class="horse-container">
@@ -96,8 +99,9 @@
             </div>
             <div id="lower-content" class="flex-container">
                 <button class="green-button" onclick="resetUser()">Reset User</button>
-                <button id="tutorial-button" class="green-button" onclick="showTutorial()">Show Tutorial</button>
+                <button id="tutorial-button" class="green-button" onclick="showTutorial()">Tutorial</button>
                 <button class="green-button" onclick="showAbout()">About</button>
+                <button class="green-button" id="mute-button" onclick="toggleMute()">Mute</button>
             </div>
             <div id="about">
                 <button id="about-button" class="small-button" onclick="hideAbout()">x</button>
