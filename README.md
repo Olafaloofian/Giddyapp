@@ -3,7 +3,7 @@
 
 ## A web game built entirely with vanilla JavaScript, HTML, and CSS
 
-[Click here](https://olafaloofian.github.io/Giddyapp/) for a live version of the app!
+[Click here](https://olafaloofian.github.io/Giddyapp/?show_tutorial=true) for a live version of the app!
 
 ---
 
