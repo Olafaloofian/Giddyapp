@@ -6,8 +6,7 @@ class Horse {
         this.movementInterval = null
         this.randomizeSpeedTimer = null
         this.horseElement = document.getElementById(this.id)
-        this.finishedStatus = false,
-        this.gallopSound = new Audio('../assets/sounds/Gallop.mp3');
+        this.finishedStatus = false
     }
 
     // Reset race
@@ -21,8 +20,6 @@ class Horse {
 
     // Stop horse movement
     stop(){
-        this.gallopSound.pause()
-        this.gallopSound.currentTime = 0
         if (!finishOrder.length) {
             showElements(["#menu-button"])
             if(userData.betHorse === this.id) {
@@ -48,6 +45,8 @@ class Horse {
         this.horseElement.src = `./assets/${this.id}/tile015.png`
         this.finishedStatus = true
         if (finishOrder.length === horseList.length) {
+            gallopSound.currentTime = 0
+            gallopSound.pause()
             document.getElementById("reset-button").style.display = "initial"
         }
         console.log('------------ Horse Finish Order:', finishOrder)
@@ -77,10 +76,6 @@ class Horse {
 
     // Run across the screen at a random speed
     run(){
-        this.gallopSound.play()
-        this.gallopSound.addEventListener('ended', function() {
-            this.play()
-        }, false);
         this.horseElement.src = `./assets/${this.id}/run.gif` // Change the image to a running gif
         this.setMovementSpeed()
     }

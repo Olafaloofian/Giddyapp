@@ -207,14 +207,21 @@ button:disabled {
     left: 0;
     height: 100vh;
     width: 100vw;
-    background-image: url("../assets/landscape/grass1.png");
-    background-color: rgb(99,171,63);
-    background-size: 30px 30px;
-    background-repeat: repeat;
+
     overflow-y: hidden;
     overflow-x: scroll;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
+}
+
+#grass-container {
+    position: absolute;
+    background-image: url("../assets/landscape/grass1.png");
+    background-color: rgb(99,171,63);
+    background-size: 30px 30px;
+    background-repeat: repeat;
+    width: 100vw;
+    height: 100vh;
 }
 
 .tooltip {
@@ -366,7 +373,7 @@ button:disabled {
 
 #raceway {
     position: relative;
-    margin: 12vh 50px 0 50px;
+    margin: 12vh auto 0 auto;
     height: 480px;
     width: 1678px;
     background-image: url("../assets/landscape/sand_dual.png");
@@ -709,6 +716,30 @@ footer {
 }
 
 /* RESPONSIVE STYLING */
+@media only screen and (max-width: 1800px) {
+    #raceway {
+        margin: 12vh 50px 0 50px;
+    }
+
+    #grass-container {
+        width: 2000px;
+    }
+}
+@media only screen and (max-width: 1250px) {
+    #lower-content {
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 0px;
+        margin-bottom: 18px;
+    }
+
+    #lower-content .green-button {
+        width: 180px;
+        padding: 7px 20px;
+        margin: 8px auto;
+        font-size: 2em;
+    }
+}
 
 @media only screen and (max-width: 740px) {
     button {
@@ -801,7 +832,7 @@ footer {
         margin: 0 50px 0 50px;
     }
 
-    #main {
+    #grass-container {
         padding-top: 10vh;
     }
 }
@@ -812,7 +843,7 @@ footer {
         /* margin-top: 5vh; */
     }
 
-    #main {
+    #grass-container {
         padding-top: 5vh;
     }
 

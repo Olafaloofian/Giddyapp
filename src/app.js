@@ -1,17 +1,26 @@
 let horseList = []
 var finishOrder = []
 var raceStarted = false
-var loseSound = new Audio('../assets/sounds/Disappointed.mp3')
-var cheerSound = new Audio('../assets/sounds/Cheer.mp3')
-var bugleSound = new Audio('../assets/sounds/Bugle.mp3')
-var startSound = new Audio('../assets/sounds/Pistol.mp3')
-var cashSound = new Audio('../assets/sounds/Cash.mp3')
-var winSound = new Audio('../assets/sounds/Win.mp3')
+var loseSound
+var cheerSound
+var bugleSound
+var startSound
+var cashSound
+var winSound
+var gallopSound
 let isTutorialActive = false
 let isMenuUp = false
 let isMuted = false
 
 window.onload = (event) => {
+    // Set up audio globals
+    loseSound = new Audio('./assets/sounds/Disappointed.mp3')
+    cheerSound = new Audio('./assets/sounds/Cheer.mp3')
+    bugleSound = new Audio('./assets/sounds/Bugle.mp3')
+    startSound = new Audio('./assets/sounds/Pistol.mp3')
+    cashSound = new Audio('./assets/sounds/Cash.mp3')
+    winSound = new Audio('./assets/sounds/Win.mp3')
+    gallopSound = new Audio('./assets/sounds/Gallop.mp3');
     // Set scroll position correctly on mobile
     document.getElementById("raceway").scrollIntoView();
     document.getElementById("main").scrollLeft = 0
@@ -66,6 +75,8 @@ function startRace() {
     }, 2000);
     setTimeout(() => {
         startSound.play()
+        gallopSound.play()
+        gallopSound.addEventListener('ended', loopSound, false);
         hideElements(["#countdown-popup"])
         countdownPopup.innerText = "3"
         horseList.forEach((horse) => {
@@ -96,6 +107,7 @@ function resetRace() {
     document.getElementById("main").scrollLeft = 0
     hideElements(["#reset-button"])
     showElements(["#dollar-container"])
+    document.getElementById("tutorial-button").disabled = false
 }
 
 function toggleMenu() {
@@ -115,6 +127,7 @@ function toggleMenu() {
     }
 }
 
+// Can this be more dry?
 function toggleMute() {
     let muteButton = document.getElementById("mute-button")
     if(!isMuted) {
@@ -129,10 +142,8 @@ function toggleMute() {
         startSound.pause();
         cashSound.muted = true;
         cashSound.pause();
-        horseList.forEach(horse => {
-            horse.gallopSound.muted = true
-            horse.gallopSound.pause()
-        })
+        gallopSound.muted = true;
+        gallopSound.pause()
         muteButton.innerText = "Unmute"
     } else {
         isMuted = false
@@ -141,9 +152,7 @@ function toggleMute() {
         bugleSound.muted = false;
         startSound.muted = false;
         cashSound.muted = false;
-        horseList.forEach(horse => {
-            horse.gallopSound.muted = false
-        })
+        gallopSound.muted = false
         muteButton.innerText = "Mute"
     }
 }
@@ -195,9 +204,8 @@ function showWinPopup() {
 async function showTutorial() {
     if(!isTutorialActive) {
         isTutorialActive = true
-        let tutorialButton = document.getElementById("tutorial-button")
         let menuButton = document.getElementById("menu-button")
-        tutorialButton.disabled = true
+        document.getElementById("tutorial-button").disabled = true
         menuButton.style.display = "none"
         if(isMenuUp) {
             toggleMenu()
@@ -263,7 +271,6 @@ async function showTutorial() {
             }, 4000);
         })
 
-        tutorialButton.disabled = false
         isTutorialActive = false
     }
 }

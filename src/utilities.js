@@ -1,3 +1,17 @@
+// Detect iOS
+function iOS() {
+    return [
+        'iPad Simulator',
+        'iPhone Simulator',
+        'iPod Simulator',
+        'iPad',
+        'iPhone',
+        'iPod'
+    ].includes(navigator.platform)
+    // iPad on iOS 13 detection
+    || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+}
+
 // Set user data
 function saveUserData() {
     localStorage.setItem("userData", JSON.stringify(userData))
@@ -33,15 +47,25 @@ function loopSound() {
 
 // Scroll along the x axis if the window isn't wide enough to fit the track
 function scrollX() {
+    let scrollPosition = 0
     if(window.innerWidth < 1735 && raceStarted) {
-        window.scrollInterval = setInterval(() => {
-            console.log('------------ AUTOSCROLL RUNNING')
-            horseList.forEach((horse) => {
-                let boundingBox = horse.horseElement.getBoundingClientRect()
-                if(boundingBox.right > window.innerWidth) {
-                    horse.horseElement.scrollIntoView()
-                }
-            })
-        }, 10)
+        if(iOS()) {
+            console.log('------------ RUNNING ON iOS')
+            setTimeout(() => {
+                window.scrollInterval = setInterval(function () {
+                    scrollPosition += 2
+                    document.getElementById("main").scrollTo(scrollPosition, 0)
+                }, 10)
+            }, 4500);
+        } else {
+            window.scrollInterval = setInterval(function () {
+                // console.log('------------ AUTOSCROLL RUNNING')
+                horseList.forEach((horse) => {
+                    if(horse.horseElement.offsetLeft + 200 > window.innerWidth) {
+                        horse.horseElement.scrollIntoView()
+                    }
+                })
+            }, 10)
+        }
     }
 }
