@@ -46,23 +46,27 @@ window.onload = (event) => {
     }
 }
 
+// Warn user before unloading if they have an active bet
 window.onbeforeunload = (event) => {
     if(userData.betAmount) {
         return "You still have a bet!"
     }
 };
 
+// Handle resizing while the race is running
 window.onresize = (event) => {
     clearInterval(window.scrollInterval)
     scrollX()
     console.log('------------ RESIZED')
 }
 
+// Future implementation of URL routes
 function router(evt) {
     let url = window.location.hash.slice(1) || '/';
     console.log('------------ url', url)
 };
 
+// Start the race
 function startRace() {
     let countdownPopup = document.getElementById("countdown-popup")
     showElements(["#countdown-popup"])
@@ -91,6 +95,7 @@ function startRace() {
     hideElements([".bet-button", "#start-button", "#reset-button", "#menu-button"])
 }
 
+// Reset the horses
 function resetRace() {
     raceStarted = false
     horseList.forEach((horse) => {
@@ -110,6 +115,7 @@ function resetRace() {
     document.getElementById("tutorial-button").disabled = false
 }
 
+// Move menu up or down
 function toggleMenu() {
     let menuElement = document.querySelector(".user-container")
     let menuButton = document.getElementById("menu-button")
@@ -127,7 +133,7 @@ function toggleMenu() {
     }
 }
 
-// Can this be more dry?
+// Swap between muted and unmuted - can this be more dry?
 function toggleMute() {
     let muteButton = document.getElementById("mute-button")
     if(!isMuted) {
@@ -157,11 +163,13 @@ function toggleMute() {
     }
 }
 
+// Display the about section
 function showAbout() {
     hideElements([".flex-container", "#menu-button"])
     showElements(["#about"])
 }
 
+// Hide the about section - move to toggle function for consistency?
 function hideAbout() {
     hideElements(["#about"])
     showElements([".flex-container", "#menu-button"])
@@ -201,6 +209,7 @@ function showWinPopup() {
     });
 }
 
+// Show the tutorial in multiple steps
 async function showTutorial() {
     if(!isTutorialActive) {
         isTutorialActive = true

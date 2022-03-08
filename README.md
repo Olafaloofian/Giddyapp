@@ -1,79 +1,23 @@
 
-# Giddyapp: Milestone Project 1
+# Giddyapp
 
-## Main concept
+## A web game built entirely with vanilla JavaScript, HTML, and CSS
 
-An online game where users can bet simulated money on a virtual horse race.
+[Click here](https://olafaloofian.github.io/Web-Game/) for a live version of the app!
 
 ---
-
-### Project Requirements
-
-- Solo project
-- This game cannot be a game or assignment we've already done in class
-- This game must run in a web browser
-- This game must be tracked in Github, with a minimum on 10 commits
-- This game must be deployed on Github Pages or another location
-- This game should be winnable or it should keep score (whichever makes more sense)
-- When a player wins or loses, the game status and/or score should display visually to the player in a way that does not rely on console.logs or alerts
-- HTML, CSS, and JavaScript should live in separate files
-- Effort must be spent on styling and appearance
-- The HTML code should use sematic tags
-- The game should have a Readme.md file in the Github repository that describes the inspiration for the game, explains the controls and how to play the game, lists the technologies used to build the game, and addresses any outstanding bugs or unfinished functionality
-
-### Functional pieces
-
-- User must be able to submit a bet before each race
-- User must be able to keep track of their current funds
-  - user object
-    - wallet
-    - current bet amount
-    - current bet horse number
-- Horses must move along a track
-- Horses must move at randomized speeds and with enough variation that the race stays exciting
-  - horse class? or multiple horse objects
-    - speed method
-      - randomly changes throughout race
-    - id
-    - asset
-- When the horse the user bets on wins, there should be a visual/auditory celebration of some kind
-  - event
-    - adds temporary html
-
-### Styling ideas
-
-- Use green CSS background or maybe image of grass
-- Use image of dirt for racetrack texture
-- Show clickable dollar bills for the user to place their bet
-- Visual celebration on a win - confetti? Flashing lights?
-- Use different images for each horse - put numbers on their sides in photoshop?
-- Gif sprite showing horse running
-- HORSE GIF SETTINGS: Frame 1-11, Delay Time 8, Don't Stack
-
-### Hosting ideas
-
-- giddyapp.buzz
-- Buzz Games
-- Websockets multiplayer
-- Account with one daily play
-
-### TODO
-
-- Download and include fonts
-- Make horse bet buttons have an arrow pointing left (started in CSS)
-- Show finish places with medals to right of track
-- Load page after all assets are available
-- Clean up CSS
-- Routing
-- Fix styling for short + wide windows
-- Figure out better solution for scrolling on iOS
 
 ### Attributions
 
 - https://github.com/CoderZ90/confetti/blob/main/confetti.js
+- https://github.com/iamdustan/smoothscroll
 - https://jamiebrownhill.itch.io/solaria-demo
 - https://ninjikin.itch.io/grass
 - https://opengameart.org/content/lpc-horse
+- https://soundbible.com/1302-Galloping-Horse.html
 - https://freesound.org/people/craigsmith/sounds/438633/
 - https://freesound.org/people/kiddpark/sounds/201159/
-- https://soundbible.com/1302-Galloping-Horse.html
+- https://freesound.org/people/unchaz/sounds/150956/
+- https://freesound.org/people/MarcoConsoli/sounds/620132/
+- https://freesound.org/people/tim.kahn/sounds/337000/
+- https://freesound.org/people/michorvath/sounds/427594/

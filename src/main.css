@@ -98,12 +98,10 @@ a {
     0% { 
         transform: translateY(0px);
         color: rgb(192, 179, 0); 
-        /* text-shadow: -0.2px -0.2px 0 #000, 0.2px -0.2px 0 #000, -0.2px 0.2px 0 #000, 0.2px 0.2px 0 #000; */
     }
     100% { 
         transform: translateY(-30px);
         color: rgba(226, 211, 0, 0); 
-        /* text-shadow: -1px -1px 0 rgba(0, 0, 0, 0), 1px -1px 0 rgba(0, 0, 0, 0), -1px 1px 0 rgba(0, 0, 0, 0), 1px 1px 0 rgba(0, 0, 0, 0); */
     }
 }
 
@@ -111,12 +109,10 @@ a {
     0% { 
         transform: translateY(0px);
         color: rgb(192, 179, 0); 
-        /* text-shadow: -0.2px -0.2px 0 #000, 0.2px -0.2px 0 #000, -0.2px 0.2px 0 #000, 0.2px 0.2px 0 #000; */
     }
     100% { 
         transform: translateY(-30px);
         color: rgba(226, 211, 0, 0); 
-        /* text-shadow: -1px -1px 0 rgba(0, 0, 0, 0), 1px -1px 0 rgba(0, 0, 0, 0), -1px 1px 0 rgba(0, 0, 0, 0), 1px 1px 0 rgba(0, 0, 0, 0); */
     }
 }
 
@@ -240,13 +236,6 @@ button:disabled {
     -moz-box-shadow: -5px 5px 0 rgb(41, 41, 41);
 }
 
-/* .tooltip::before {
-    content: 'x';
-    position: absolute;
-    top: 0;
-    right: 5px;
-} */
-
 .arrow-down::after {
     content: '';
     position: absolute;
@@ -267,10 +256,6 @@ button:disabled {
     top: -130%;
     left: 30%
 }
-
-/* .display-tooltip::before {
-    content: ''
-} */
 
 .start-tooltip {
     top: -40%;
@@ -301,7 +286,6 @@ button:disabled {
 
 #win-message {
     display: none;
-    /* visibility: hidden; */
     position: fixed;
     width: 70%;
     height: 100px;
@@ -318,10 +302,6 @@ button:disabled {
     vertical-align: middle;
     text-shadow: -2px -2px 0 rgb(29, 29, 29), 2px -2px 0 rgb(29, 29, 29), -2px 2px 0 rgb(29, 29, 29), 2px 2px 0 rgb(29, 29, 29);
     line-height: 100px;
-    /* display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center; */
 }
 
 .popup {
@@ -452,17 +432,6 @@ button:disabled {
     background-color: rgb(156, 0, 0);
 }
 
-/* .horse-container > button:last-of-type::before {
-    content: '';
-    position: relative;
-    width: 0;
-    height: 0;
-    left: -20px;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-right: 10px solid maroon;
-} */
-
 .horse {
     position: relative;
     width: 180px;
@@ -470,11 +439,6 @@ button:disabled {
     z-index: 1;
     padding-right: 60px;
 }
-
-/* .temp-name {
-    display: inherit;
-    width: 100px;
-} */
 
 .user-container {
     height: 440px;
@@ -537,15 +501,9 @@ button:disabled {
 
 #reset-button {
     display: none;
-    /* position: fixed;
-    bottom: 30px;
-    right: 30px; */
 }
 
 #start-button {
-    /* position: fixed;
-    bottom: 30px;
-    right: 30px; */
     display: none;
 }
 
@@ -587,14 +545,6 @@ button:disabled {
     -moz-box-shadow: 0px 0px 0 rgb(41, 41, 41);
 }
 
-
-/* #info-container {
-    width: 400px;
-    height: 250px;
-    border: 3px solid rgb(61, 61, 61);
-    background-color: rgb(255, 255, 255);
-} */
-
 .user-info {
     width: 400px;
     height: 50px;
@@ -620,7 +570,6 @@ button:disabled {
     color: rgba(0, 0, 0, 0);
     animation: fadeAway 0.7s ease;
     font-size: 1.1em;
-    text-shadow: -2px -2px 0 rgba(0, 0, 0, 0), 2px -2px 0 rgba(0, 0, 0, 0), -2px 2px 0 rgba(0, 0, 0, 0), 2px 2px 0 rgba(0, 0, 0, 0);
 }
 
 #multi-container {
@@ -646,10 +595,6 @@ button:disabled {
 }
 
 .dollar-button {
-    /* display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center; */
     text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
     width: 120px;
     height: 63px;
@@ -840,7 +785,6 @@ footer {
 @media only screen and (max-height: 800px) {
     #raceway {
         height: 350px;
-        /* margin-top: 5vh; */
     }
 
     #grass-container {
