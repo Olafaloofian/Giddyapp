@@ -883,6 +883,12 @@ footer {
         font-size: 30px;
     }
 
+    #lower-content .green-button {
+        padding: 5px 2px;
+        width: 125px;
+        font-size: 1.4em;
+    }
+
     #user-display-container {
         font-size: 12px;
     }
