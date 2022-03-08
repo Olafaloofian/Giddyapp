@@ -56,7 +56,7 @@ function scrollX() {
                     scrollPosition += 2
                     document.getElementById("main").scrollTo(scrollPosition, 0)
                 }, 10)
-            }, 4500);
+            }, 1500);
         } else {
             window.scrollInterval = setInterval(function () {
                 console.log('------------ AUTOSCROLL RUNNING')

@@ -82,13 +82,13 @@ function startRace() {
         horseList.forEach((horse) => {
             horse.run()
         })
+        scrollX()
     }, 3000);
     raceStarted = true
     if(isMenuUp) {
         toggleMenu()
     }
     hideElements([".bet-button", "#start-button", "#reset-button", "#menu-button"])
-    scrollX()
 }
 
 function resetRace() {
