@@ -28,10 +28,6 @@ window.onload = (event) => {
     horseList = Array.from(document.querySelectorAll(".horse")).map((horseElement) => new Horse(horseElement.id))
     // Set up auto-scroll
     scrollX()
-    // Check for tutorial URL
-    if(/\?show_tutorial=true/g.test(window.location.href)) {
-        showTutorial()
-    } 
     //Route user
     router()
     // Get local storage
@@ -44,6 +40,12 @@ window.onload = (event) => {
     } else {
         saveUserData()
     }
+    // Check for tutorial URL
+    if(/\?show_tutorial=true/g.test(window.location.href)) {
+        if(userData.funds !== 0) {
+            showTutorial()
+        }
+    } 
 }
 
 // Warn user before unloading if they have an active bet
