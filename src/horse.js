@@ -13,7 +13,7 @@ class Horse {
     reset(){
         clearInterval(this.movementInterval);
         clearInterval(window.scrollInterval);
-        this.horseElement.src = `./assets/${this.id}/tile015.png`
+        this.horseElement.src = `../assets/${this.id}/tile015.png`
         this.horseElement.style.left = "0px";
         this.finishedStatus = false
         // hideElements(["#win-message"])
@@ -44,7 +44,7 @@ class Horse {
         clearInterval(this.movementInterval);
         clearTimeout(this.randomizeSpeedTimer);
         clearInterval(window.scrollInterval);
-        this.horseElement.src = `./assets/${this.id}/tile015.png`
+        this.horseElement.src = `../assets/${this.id}/tile015.png`
         this.finishedStatus = true
         if (finishOrder.length === horseList.length) {
             document.getElementById("reset-button").style.display = "initial"
@@ -76,7 +76,7 @@ class Horse {
 
     // Run across the screen at a random speed
     run(){
-        this.horseElement.src = `./assets/${this.id}/run.gif` // Change the image to a running gif
+        this.horseElement.src = `../assets/${this.id}/run.gif` // Change the image to a running gif
         this.setMovementSpeed()
     }
 }
