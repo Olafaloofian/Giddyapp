@@ -52,14 +52,14 @@ function scrollX() {
         if(iOS()) {
             setTimeout(() => {
                 window.scrollInterval = setInterval(function () {
-                    console.log('------------ RUNNING ON iOS')
+                    console.log('------------ AUTO SCROLL RUNNING ON iOS')
                     scrollPosition += 2
                     document.getElementById("main").scrollTo(scrollPosition, 0)
                 }, 10)
             }, 1500);
         } else {
             window.scrollInterval = setInterval(function () {
-                console.log('------------ AUTOSCROLL RUNNING')
+                console.log('------------ AUTO SCROLL RUNNING')
                 horseList.forEach((horse) => {
                     if(horse.horseElement.offsetLeft + 200 > window.innerWidth) {
                         horse.horseElement.scrollIntoView()

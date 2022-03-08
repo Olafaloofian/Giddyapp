@@ -285,4 +285,3 @@ async function showTutorial() {
         isTutorialActive = false
     }
 }
-

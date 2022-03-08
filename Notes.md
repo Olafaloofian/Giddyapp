@@ -1,15 +1,17 @@
-### Styling
+# Notes
+
+## Styling
 
 - HORSE GIF SETTINGS: Frame 1-11, Delay Time 8, Don't Stack
 
-### Hosting ideas
+## Hosting ideas
 
 - giddyapp.buzz
 - Buzz Games
 - Websockets multiplayer
 - Account with one daily play
 
-### TODO
+## TODO
 
 - Download and include fonts
 - Make horse bet buttons have an arrow pointing left (started in CSS)
