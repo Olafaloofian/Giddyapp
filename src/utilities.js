@@ -48,6 +48,7 @@ function loopSound() {
 // Scroll along the x axis if the window isn't wide enough to fit the track
 function scrollX() {
     let scrollPosition = 0
+    let selectedHorse = document.getElementById(userData.betHorse)
     if(window.innerWidth < 1735 && raceStarted) {
         if(iOS()) {
             setTimeout(() => {
@@ -60,11 +61,17 @@ function scrollX() {
         } else {
             window.scrollInterval = setInterval(function () {
                 console.log('------------ AUTO SCROLL RUNNING')
-                horseList.forEach((horse) => {
-                    if(horse.horseElement.offsetLeft + 200 > window.innerWidth) {
-                        horse.horseElement.scrollIntoView()
-                    }
-                })
+                if(selectedHorse.offsetLeft + 500 > window.innerWidth) {
+                    selectedHorse.scrollIntoView()
+                    // document.getElementById("main").scrollTo(selectedHorse.offsetLeft - 100, 0)
+                }
+                // Is this a better option?
+                // horseList.forEach((horse) => {
+                //     if(horse.horseElement.offsetLeft + 200 > window.innerWidth) {
+                //         horse.horseElement.scrollIntoView()
+                //     }
+                // })
+
             }, 10)
         }
     }

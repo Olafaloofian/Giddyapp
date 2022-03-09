@@ -31,7 +31,6 @@ class Horse {
                 document.getElementById("user-bet-text").textContent = `${this.id.toUpperCase()} WINS!`
             } else {
                 loseSound.play()
-                userData.betHorse = null
                 userData.betAmount = 0
                 saveUserData()
                 document.getElementById("user-bet-text").textContent = `${this.id} wins.`
@@ -39,17 +38,21 @@ class Horse {
             }
         }
         finishOrder.push(this)
-        clearInterval(this.movementInterval);
-        clearTimeout(this.randomizeSpeedTimer);
-        clearInterval(window.scrollInterval);
-        this.horseElement.src = `./assets/${this.id}/tile015.png`
-        this.finishedStatus = true
+        if(userData.betHorse === this.id) {
+            console.log('------------ BET HORSE FINISHED')
+            userData.betHorse = null
+            clearInterval(window.scrollInterval);
+        }
         if (finishOrder.length === horseList.length) {
             gallopSound.currentTime = 0
             gallopSound.pause()
             document.getElementById("reset-button").style.display = "initial"
         }
-        console.log('------------ Horse Finish Order:', finishOrder)
+        clearInterval(this.movementInterval);
+        clearTimeout(this.randomizeSpeedTimer);
+        this.horseElement.src = `./assets/${this.id}/tile015.png`
+        this.finishedStatus = true
+        // console.log('------------ Horse Finish Order:', finishOrder)
     }
 
     // Will be called repeatedly to randomize speed across the course
