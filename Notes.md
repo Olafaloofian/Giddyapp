@@ -13,6 +13,7 @@
 
 ## TODO
 
+- Disable cheering sound on win when mute is selected
 - Download and include fonts
 - Make horse bet buttons have an arrow pointing left (started in CSS)
 - Show finish places with medals to right of track
